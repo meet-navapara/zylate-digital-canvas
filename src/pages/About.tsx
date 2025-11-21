@@ -29,32 +29,11 @@ const About = () => {
     }
   ];
 
-  const team = [
-    {
-      name: "Alex Rodriguez",
-      role: "Founder & Lead Developer",
-      bio: "Full-stack developer with 8+ years of experience in building scalable web applications and leading development teams.",
-      image: "/placeholder.svg"
-    },
-    {
-      name: "Sarah Chen",
-      role: "UI/UX Designer",
-      bio: "Creative designer passionate about user-centered design and creating intuitive digital experiences that users love.",
-      image: "/placeholder.svg"
-    },
-    {
-      name: "Michael Johnson",
-      role: "Mobile App Developer",
-      bio: "Expert in React Native and native mobile development with a track record of successful app store launches.",
-      image: "/placeholder.svg"
-    }
-  ];
-
   const stats = [
-    { label: "Projects Completed", value: "50+" },
-    { label: "Years of Experience", value: "3+" },
+    { label: "IT Projects Completed", value: "500+" },
+    { label: "Years of Experience", value: "4+" },
     { label: "Client Satisfaction", value: "98%" },
-    { label: "Team Members", value: "5+" }
+    { label: "Active Clients", value: "1000+" }
   ];
 
   return (
@@ -66,11 +45,12 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              About <span className="gradient-text">Zylate</span>
+              About <span className="gradient-text">Zylate Infotech</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We're a passionate team of developers, designers, and digital strategists 
-              dedicated to creating exceptional web and mobile experiences that drive business growth.
+              We're a leading IT services company providing comprehensive technology solutions to businesses. 
+              Our team of skilled professionals delivers software development, cloud services, cybersecurity, 
+              and IT support to help organizations succeed in the digital landscape.
             </p>
           </div>
           
@@ -100,19 +80,20 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Founded in 2021, Zylate began as a vision to bridge the gap between innovative 
-                  technology and practical business solutions. We started with a simple belief: 
-                  every business deserves a digital presence that truly represents their values and drives results.
+                  Founded in 2021, Zylate Infotech began with a vision to provide comprehensive IT solutions 
+                  that empower businesses to thrive in the digital era. We started with a simple belief: 
+                  every business deserves reliable, scalable, and secure technology solutions that drive growth and efficiency.
                 </p>
                 <p>
-                  What started as a small team of passionate developers has grown into a full-service 
-                  digital agency. We've had the privilege of working with startups, established businesses, 
-                  and everything in between, helping them transform their digital presence and achieve their goals.
+                  What started as a small team of passionate IT professionals has grown into a full-service 
+                  IT company. We've had the privilege of working with startups, SMEs, and large enterprises, 
+                  helping them leverage technology to streamline operations, enhance security, and achieve their business objectives.
                 </p>
                 <p>
-                  Today, we continue to push boundaries, embrace new technologies, and create solutions 
-                  that not only meet current needs but anticipate future challenges. Our commitment to 
-                  excellence and innovation remains at the heart of everything we do.
+                  Today, we continue to expand our service offerings, embrace emerging technologies, and deliver 
+                  solutions that not only address current IT challenges but also prepare businesses for future 
+                  technological advancements. Our commitment to excellence, innovation, and customer satisfaction 
+                  remains at the heart of everything we do.
                 </p>
               </div>
             </div>
@@ -149,40 +130,6 @@ const About = () => {
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
                   <p className="text-muted-foreground text-sm">{value.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Meet Our <span className="gradient-text">Team</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              The talented individuals behind Zylate who bring creativity, expertise, and passion to every project.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {team.map((member) => (
-              <Card key={member.name} className="overflow-hidden hover:shadow-elegant transition-all duration-300">
-                <div className="relative">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="w-full h-64 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
-                  <p className="text-coral font-medium mb-3">{member.role}</p>
-                  <p className="text-muted-foreground text-sm">{member.bio}</p>
                 </CardContent>
               </Card>
             ))}

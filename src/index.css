@@ -9,87 +9,88 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 251 76% 46%;
+    --foreground: 210 100% 25%; /* Deep Navy Blue */
 
-    /* Brand Colors */
-    --primary: 251 76% 46%; /* Dark Purple */
+    /* Brand Colors - Modern IT Services Palette */
+    --primary: 210 100% 35%; /* Professional Deep Blue */
     --primary-foreground: 0 0% 100%;
-    --primary-light: 251 76% 66%;
+    --primary-light: 210 100% 55%;
 
-    --coral: 181 37% 46%; /* Teal Accent */
+    --coral: 195 100% 50%; /* Bright Cyan/Sky Blue */
     --coral-foreground: 0 0% 100%;
-    --coral-light: 181 37% 66%;
+    --coral-light: 195 100% 70%;
 
-    --secondary: 251 20% 96%;
-    --secondary-foreground: 251 76% 46%;
+    --secondary: 25 95% 53%; /* Vibrant Orange */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 25 95% 65%;
 
     /* Surface Colors */
     --card: 0 0% 100%;
-    --card-foreground: 251 76% 46%;
+    --card-foreground: 210 100% 25%;
 
-    --muted: 251 20% 97%;
-    --muted-foreground: 251 20% 47%;
+    --muted: 210 20% 97%;
+    --muted-foreground: 210 20% 45%;
 
-    --accent: 251 20% 97%;
-    --accent-foreground: 251 76% 46%;
+    --accent: 195 30% 96%;
+    --accent-foreground: 210 100% 35%;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(251 76% 66%), hsl(181 37% 46%));
-    --gradient-coral: linear-gradient(135deg, hsl(181 37% 46%), hsl(251 76% 66%));
-    --gradient-hero: linear-gradient(135deg, hsl(251 76% 66%) 0%, hsl(181 37% 46%) 50%, hsl(251 76% 46%) 100%);
+    /* Gradients - Modern Tech Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 55%), hsl(195 100% 50%));
+    --gradient-coral: linear-gradient(135deg, hsl(195 100% 50%), hsl(25 95% 53%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 100% 55%) 0%, hsl(195 100% 50%) 50%, hsl(25 95% 53%) 100%);
 
     /* Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(251 76% 46% / 0.1);
-    --shadow-coral: 0 10px 30px -10px hsl(181 37% 46% / 0.2);
+    --shadow-elegant: 0 10px 30px -10px hsl(210 100% 35% / 0.15);
+    --shadow-coral: 0 10px 30px -10px hsl(195 100% 50% / 0.25);
 
     /* UI Elements */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 251 20% 92%;
-    --input: 251 20% 92%;
-    --ring: 251 76% 46%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 210 100% 35%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 251 20% 98%;
+    --sidebar-background: 210 20% 98%;
 
-    --sidebar-foreground: 251 5.3% 26.1%;
+    --sidebar-foreground: 210 5.3% 26.1%;
 
-    --sidebar-primary: 251 5.9% 10%;
+    --sidebar-primary: 210 5.9% 10%;
 
     --sidebar-primary-foreground: 0 0% 98%;
 
-    --sidebar-accent: 251 4.8% 95.9%;
+    --sidebar-accent: 195 4.8% 95.9%;
 
-    --sidebar-accent-foreground: 251 5.9% 10%;
+    --sidebar-accent-foreground: 210 5.9% 10%;
 
-    --sidebar-border: 251 13% 91%;
+    --sidebar-border: 210 13% 91%;
 
-    --sidebar-ring: 251.2 91.2% 59.8%;
+    --sidebar-ring: 195 100% 50%;
   }
 
   .dark {
-    --background: 251 76% 16%;
+    --background: 210 100% 8%;
     --foreground: 0 0% 100%;
 
-    --primary: 0 0% 100%;
-    --primary-foreground: 251 76% 46%;
+    --primary: 195 100% 60%;
+    --primary-foreground: 210 100% 8%;
 
-    --card: 251 76% 18%;
+    --card: 210 100% 12%;
     --card-foreground: 0 0% 100%;
 
-    --muted: 251 76% 20%;
-    --muted-foreground: 251 20% 70%;
+    --muted: 210 100% 15%;
+    --muted-foreground: 210 20% 75%;
 
-    --accent: 251 76% 20%;
+    --accent: 195 100% 20%;
     --accent-foreground: 0 0% 100%;
 
-    --border: 251 76% 25%;
-    --input: 251 76% 25%;
-    --ring: 0 0% 100%;
+    --border: 210 100% 20%;
+    --input: 210 100% 20%;
+    --ring: 195 100% 60%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(251 76% 16%) 0%, hsl(251 76% 30%) 50%, hsl(181 37% 46%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(210 100% 8%) 0%, hsl(210 100% 20%) 50%, hsl(195 100% 40%) 100%);
   }
 }
 
@@ -109,7 +110,7 @@ All colors MUST be HSL.
 
 @layer components {
   .gradient-text {
-    @apply bg-gradient-to-r from-primary via-primary-light to-coral bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-coral to-secondary bg-clip-text text-transparent;
   }
   
   .hero-gradient {

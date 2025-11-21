@@ -12,22 +12,15 @@ const Contact = () => {
       icon: Mail,
       title: "Email Us",
       description: "Send us an email and we'll respond within 24 hours",
-      contact: "hello@zylate.com",
-      action: "mailto:hello@zylate.com"
+      contact: "zylateinfotech@gmail.com",
+      action: "mailto:zylateinfotech@gmail.com"
     },
     {
       icon: Phone,
       title: "Call Us",
-      description: "Speak directly with our team during business hours", 
-      contact: "+1 (555) 123-4567",
-      action: "tel:+15551234567"
-    },
-    {
-      icon: MessageCircle,
-      title: "Live Chat",
-      description: "Get instant answers to your questions",
-      contact: "Available 9AM-6PM PST",
-      action: "#"
+      description: "Speak directly with our team during business hours",
+      contact: `+91 7383168307`,
+      action: "tel:+917383168307"
     }
   ];
 
@@ -35,36 +28,35 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Office Location",
-      details: ["123 Innovation Drive", "Suite 100", "San Francisco, CA 94105"]
+      details: ["217 Ambika pinecale", "Mota Varachha", "Surat Gujarat 394101"]
     },
     {
       icon: Clock,
       title: "Business Hours",
-      details: ["Monday - Friday: 9:00 AM - 6:00 PM", "Saturday: 10:00 AM - 4:00 PM", "Sunday: Closed"]
-    },
-    {
-      icon: Calendar,
-      title: "Schedule a Meeting",
-      details: ["Book a free consultation", "30-minute discovery call", "Project planning session"]
+      details: ["Monday - Friday: 10:00 AM - 7:00 PM", "Saturday: 10:00 AM - 1:00 PM", "Sunday: Closed"]
     }
   ];
 
   const faqs = [
     {
-      question: "How long does a typical project take?",
-      answer: "Project timelines vary based on complexity and scope. Simple websites typically take 2-4 weeks, while complex web applications can take 8-16 weeks. We'll provide a detailed timeline during our initial consultation."
+      question: "What IT services do you provide?",
+      answer: "We offer comprehensive IT services including software development, cloud services (AWS, Azure, GCP), cybersecurity solutions, network management, mobile app development, and 24/7 IT support. We can customize our services to meet your specific business needs."
     },
     {
-      question: "Do you offer ongoing support and maintenance?",
-      answer: "Yes! We provide comprehensive support and maintenance packages to keep your website or application running smoothly. This includes security updates, bug fixes, performance optimization, and content updates."
+      question: "Do you provide 24/7 IT support?",
+      answer: "Yes! We offer round-the-clock IT support services to ensure your systems are always running smoothly. Our help desk is available 24/7 for technical assistance, troubleshooting, and emergency support."
     },
     {
-      question: "What's your development process like?",
-      answer: "We follow an agile development process with regular check-ins and deliverables. You'll have full visibility into the project progress and opportunities to provide feedback at each stage."
+      question: "Can you help with cloud migration?",
+      answer: "Absolutely! We specialize in cloud migration services for AWS, Azure, and Google Cloud Platform. We handle the entire migration process including planning, execution, and optimization to ensure minimal downtime and maximum efficiency."
     },
     {
-      question: "Can you work with our existing design or brand guidelines?",
-      answer: "Absolutely! We can work with your existing brand guidelines, design system, or create something completely new. We're flexible and adapt to your specific needs and preferences."
+      question: "What industries do you serve?",
+      answer: "We serve businesses across various industries including healthcare, finance, retail, manufacturing, education, and more. Our IT solutions are tailored to meet industry-specific requirements and compliance standards."
+    },
+    {
+      question: "Do you offer cybersecurity services?",
+      answer: "Yes! We provide comprehensive cybersecurity services including security audits, threat monitoring, data protection, compliance support, and security training. We help protect your business from cyber threats and ensure regulatory compliance."
     }
   ];
 
@@ -79,8 +71,8 @@ const Contact = () => {
             Get In <span className="gradient-text">Touch</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to start your next project? We'd love to hear from you. 
-            Reach out and let's discuss how we can help bring your vision to life.
+            Ready to enhance your IT infrastructure? We'd love to hear from you. 
+            Reach out and let's discuss how we can help optimize your technology solutions and drive business growth.
           </p>
         </div>
       </section>
@@ -88,7 +80,7 @@ const Contact = () => {
       {/* Contact Methods */}
       <section className="pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="flex justify-center gap-8 mb-16 flex-wrap">
             {contactMethods.map((method) => (
               <Card key={method.title} className="text-center hover:shadow-elegant transition-all duration-300 group">
                 <CardHeader>
@@ -157,17 +149,17 @@ const Contact = () => {
                 </Card>
               ))}
 
-              {/* Map Placeholder */}
+              {/* Interactive Map */}
               <Card className="overflow-hidden">
-                <div className="h-64 bg-muted flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="h-12 w-12 text-muted-foreground mx-auto mb-2" />
-                    <p className="text-muted-foreground">Interactive Map</p>
-                    <p className="text-sm text-muted-foreground">
-                      123 Innovation Drive, San Francisco, CA
-                    </p>
-                  </div>
-                </div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d17647.407344977422!2d72.8858624!3d21.219082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1763105885011!5m2!1sen!2sin"
+                  width="100%"
+                  height="256"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </Card>
             </div>
           </div>

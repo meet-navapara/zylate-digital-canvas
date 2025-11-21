@@ -18,7 +18,6 @@ const Portfolio = () => {
       year: "2024",
       tags: ["React", "Node.js", "MongoDB", "Stripe", "AWS", "TypeScript"],
       liveUrl: "#",
-      githubUrl: "#",
       highlights: ["50% increase in conversion rate", "99.9% uptime", "Mobile-first responsive design"]
     },
     {
@@ -30,7 +29,6 @@ const Portfolio = () => {
       year: "2024",
       tags: ["React Native", "Firebase", "TensorFlow", "Redux", "TypeScript"],
       liveUrl: "#",
-      githubUrl: "#", 
       highlights: ["10K+ downloads", "4.8★ app store rating", "Real-time health monitoring"]
     },
     {
@@ -42,7 +40,6 @@ const Portfolio = () => {
       year: "2023",
       tags: ["Flutter", "Firebase", "Stripe", "Cloud Functions", "Analytics"],
       liveUrl: "#",
-      githubUrl: "#",
       highlights: ["Featured on App Store", "25K+ active users", "Award-winning UI design"]
     },
     {
@@ -54,7 +51,6 @@ const Portfolio = () => {
       year: "2023", 
       tags: ["Next.js", "D3.js", "PostgreSQL", "Redis", "Docker", "Kubernetes"],
       liveUrl: "#",
-      githubUrl: "#",
       highlights: ["1M+ data points processed daily", "Sub-second query performance", "Enterprise security compliance"]
     },
     {
@@ -66,7 +62,6 @@ const Portfolio = () => {
       year: "2023",
       tags: ["React", "Python", "Django", "PostgreSQL", "WebRTC", "AWS"],
       liveUrl: "#", 
-      githubUrl: "#",
       highlights: ["5K+ students enrolled", "HD video streaming", "Interactive learning tools"]
     },
     {
@@ -78,7 +73,6 @@ const Portfolio = () => {
       year: "2022",
       tags: ["Vue.js", "Node.js", "MySQL", "Socket.io", "Payment APIs"],
       liveUrl: "#",
-      githubUrl: "#",
       highlights: ["30% reduction in order processing time", "Real-time inventory tracking", "Multi-location support"]
     }
   ];
@@ -101,8 +95,8 @@ const Portfolio = () => {
             Our <span className="gradient-text">Portfolio</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Explore our collection of successful projects that showcase our expertise 
-            in web development, mobile apps, and digital solutions.
+            Explore our collection of successful IT projects that showcase our expertise 
+            in software development, cloud solutions, enterprise systems, and IT infrastructure.
           </p>
         </div>
       </section>
@@ -143,12 +137,6 @@ const Portfolio = () => {
                         <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="h-4 w-4 mr-1" />
                           Live
-                        </a>
-                      </Button>
-                      <Button size="sm" variant="secondary" asChild>
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                          <Github className="h-4 w-4 mr-1" />
-                          Code
                         </a>
                       </Button>
                     </div>
@@ -201,10 +189,10 @@ const Portfolio = () => {
       <section className="py-20 bg-muted/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Create Your <span className="gradient-text">Success Story?</span>
+            Ready to Transform Your <span className="gradient-text">IT Infrastructure?</span>
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Let's discuss your project and see how we can help you achieve your goals.
+            Let's discuss your IT needs and see how we can help optimize your technology solutions and drive business growth.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>

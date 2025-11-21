@@ -23,10 +23,10 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-coral rounded-lg flex items-center justify-center">
-              <span className="text-coral-foreground font-bold text-lg">Z</span>
-            </div>
-            <span className="text-xl font-bold gradient-text">Zylate</span>
+            {/* <div className="w-8 h-8 bg-gradient-coral rounded-lg flex items-center justify-center">
+              <img src="/logo.png" alt="Zylate Logo" className="w-8 h-8 rounded-lg" />
+            </div> */}
+            <span className="text-4xl font-bold gradient-text">Zylate</span>
           </Link>
 
           {/* Desktop Navigation */}
