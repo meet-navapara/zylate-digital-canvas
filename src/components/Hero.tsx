@@ -1,6 +1,8 @@
 import { Button } from "./ui/button";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
+import { TextAnimate } from "@/registry/magicui/text-animate"
+import { CountUpStat } from "./ui/CountUp";
 
 const Hero = () => {
   return (
@@ -40,13 +42,14 @@ const Hero = () => {
         </div>
 
         {/* Main heading with enhanced styling */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up animate-delay-100 leading-tight text-foreground">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight text-foreground">
+        <TextAnimate animation="scaleUp" duration={2} by="text">
           <span className="block mb-2">Comprehensive IT Services</span>
-          <span className="block">For Your Business Success</span>
+          <span className="block">For Your Business Success</span></TextAnimate>
         </h1>
 
         {/* Subheading */}
-        <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto text-balance animate-fade-in-up animate-delay-200">
+        <p className="text-xl md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto text-balance animate-fade-in-up animate-delay-200">
           We provide end-to-end IT solutions including software development, cloud services, 
           network management, cybersecurity, and IT support to help your business thrive in the digital age.
         </p>
@@ -70,20 +73,25 @@ const Hero = () => {
 
         {/* Stats with enhanced cards */}
         <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-lg mx-auto animate-fade-in-up animate-delay-300">
-          <div className="group relative p-4 rounded-xl bg-muted/30 backdrop-blur-sm border border-border/50 hover:border-coral/50 transition-all duration-300 hover:shadow-elegant">
-            <div className="text-2xl md:text-3xl font-bold gradient-text mb-1 group-hover:scale-110 transition-transform duration-300">500+</div>
+          <div className="group relative p-4 rounded-xl bg-muted/30 backdrop-blur-sm border border-border/50 hover:shadow-lg hover:border-blue-400 transition-all duration-300 hover:shadow-elegant cursor-default">
+            <CountUpStat
+              value="500+"
+              className="text-2xl md:text-3xl font-bold gradient-text mb-1 group-hover:scale-110 transition-transform duration-300"
+              duration={1000}
+            />
             <div className="text-xs md:text-sm text-muted-foreground">IT Projects</div>
-            <div className="absolute top-0 right-0 w-1 h-full bg-gradient-coral opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-r-xl"></div>
           </div>
-          <div className="group relative p-4 rounded-xl bg-muted/30 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-elegant">
-            <div className="text-2xl md:text-3xl font-bold gradient-text mb-1 group-hover:scale-110 transition-transform duration-300">1000+</div>
+          <div className="group relative p-4 rounded-xl bg-muted/30 backdrop-blur-sm border border-border/50 hover:shadow-lg hover:border-blue-400 transition-all duration-300 hover:shadow-elegant cursor-default">
+            <CountUpStat
+              value="1000+"
+              className="text-2xl md:text-3xl font-bold gradient-text mb-1 group-hover:scale-110 transition-transform duration-300"
+              duration={1000}
+            />
             <div className="text-xs md:text-sm text-muted-foreground">Clients</div>
-            <div className="absolute top-0 right-0 w-1 h-full bg-gradient-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-r-xl"></div>
           </div>
-          <div className="group relative p-4 rounded-xl bg-muted/30 backdrop-blur-sm border border-border/50 hover:border-secondary/50 transition-all duration-300 hover:shadow-elegant">
+          <div className="group relative p-4 rounded-xl bg-muted/30 backdrop-blur-sm border border-border/50 hover:border-blue-400 hover:shadow-lg transition-all duration-300 hover:shadow-elegant cursor-default">
             <div className="text-2xl md:text-3xl font-bold gradient-text mb-1 group-hover:scale-110 transition-transform duration-300">24/7</div>
             <div className="text-xs md:text-sm text-muted-foreground">Support</div>
-            <div className="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-secondary to-coral opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-r-xl"></div>
           </div>
         </div>
       </div>

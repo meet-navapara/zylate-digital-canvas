@@ -28,7 +28,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Office Location",
-      details: ["217 Ambika pinecale", "Mota Varachha", "Surat Gujarat 394101"]
+      details: ["207 Ambika pinecale", "Mota Varachha", "Surat Gujarat 394101"]
     },
     {
       icon: Clock,
@@ -68,7 +68,7 @@ const Contact = () => {
       <section className="pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Get In <span className="gradient-text">Touch</span>
+            <span className="gradient-text">Get In Touch</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Ready to enhance your IT infrastructure? We'd love to hear from you. 
@@ -84,18 +84,25 @@ const Contact = () => {
             {contactMethods.map((method) => (
               <Card key={method.title} className="text-center hover:shadow-elegant transition-all duration-300 group">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-gradient-coral rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[hsl(210,100%,25%)] via-primary to-[hsl(210,100%,30%)] rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <method.icon className="h-6 w-6 text-coral-foreground" />
                   </div>
                   <CardTitle className="text-xl">{method.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">{method.description}</p>
+                  <div className="flex flex-row justify-center items-center gap-2">
                   <Button variant="outline" asChild>
                     <a href={method.action}>
                       {method.contact}
                     </a>
                   </Button>
+                  {method.contact == "+91 7383168307" ? <Button variant="outline" asChild>
+                    <a href="tel:+918401446125">
+                    +91 8401446125
+                    </a>
+                  </Button> : ""}
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -108,22 +115,24 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form */}
-            <div>
+            <div className="flex flex-col items-start justify-start">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                Send Us a <span className="gradient-text">Message</span>
+                <span className="gradient-text">Send Us a Message</span>
               </h2>
               <p className="text-muted-foreground mb-8">
                 Fill out the form below and we'll get back to you within 24 hours. 
                 The more details you provide, the better we can assist you.
               </p>
+              <div className="flex flex-col items-start justify-start">
               <ContactForm />
+              </div>
             </div>
 
             {/* Office Information */}
             <div className="space-y-8">
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold mb-8">
-                  Visit Our <span className="gradient-text">Office</span>
+                  <span className="gradient-text">Visit Our Office</span>
                 </h2>
               </div>
               
@@ -131,7 +140,7 @@ const Contact = () => {
                 <Card key={info.title} className="hover:shadow-elegant transition-all duration-300">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className="w-10 h-10 bg-gradient-coral rounded-lg flex items-center justify-center flex-shrink-0">
+                      <div className="w-10 h-10 bg-gradient-to-br from-[hsl(210,100%,25%)] via-primary to-[hsl(210,100%,30%)] rounded-lg flex items-center justify-center flex-shrink-0">
                         <info.icon className="h-5 w-5 text-coral-foreground" />
                       </div>
                       <div>
@@ -171,7 +180,7 @@ const Contact = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Frequently Asked <span className="gradient-text">Questions</span>
+              <span className="gradient-text">Frequently Asked Questions</span>
             </h2>
             <p className="text-xl text-muted-foreground">
               Quick answers to common questions about our services and process.

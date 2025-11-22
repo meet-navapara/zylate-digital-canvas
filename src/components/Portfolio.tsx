@@ -42,12 +42,12 @@ const Portfolio = () => {
   };
 
   return (
-    <section className="py-20">
+    <section className="py-5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Our Latest <span className="gradient-text">Projects</span>
+            <span className="gradient-text">Our Latest Projects</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Explore our portfolio of successful IT projects that showcase our expertise in software development, 

@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-gradient-to-br from-[hsl(210,100%,25%)] via-primary to-[hsl(210,100%,30%)] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="flex justify-between items-center">
           {/* Logo & Description */}
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center space-x-2 mb-4">
@@ -18,21 +18,11 @@ const Footer = () => {
               Leading IT services company providing comprehensive technology solutions including software development, 
               cloud services, cybersecurity, and IT support. Your trusted partner for all IT needs.
             </p>
-            <div className="flex space-x-4">
-              <a 
-                href="https://www.linkedin.com/company/zylate-infotech/" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/60 hover:text-coral transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-            </div>
+            
           </div>
 
           {/* Quick Links */}
-          <div>
+          {/* <div>
             <h3 className="font-semibold mb-4 text-white">Quick Links</h3>
             <ul className="space-y-2">
               <li>
@@ -61,11 +51,11 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-semibold mb-4 text-white">Contact</h3>
+            <h3 className="font-semibold mb-4 text-white">Contact Us</h3>
             <div className="space-y-2">
               <div className="flex items-center space-x-2 text-white/70">
                 <Mail className="h-4 w-4" />
@@ -81,15 +71,26 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2 text-white/70">
                 <MapPin className="h-4 w-4" />
-                <span className="text-sm">217 Ambika pinecale Mota Varachha Surat Gujarat 394101</span>
+                <span className="text-sm">207 Ambika pinecale Mota Varachha Surat Gujarat 394101</span>
               </div>
+              <div className="flex space-x-4">
+              <a 
+                href="https://www.linkedin.com/company/zylate-infotech/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/60 hover:text-coral transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+            </div>
             </div>
           </div>
         </div>
 
         <div className="border-t border-white/20 mt-8 pt-8 text-center">
           <p className="text-white/60 text-sm">
-            © {new Date().getFullYear()} Zylate. All rights reserved.
+            © {new Date().getFullYear()} Zylate Infotech. All rights reserved.
           </p>
         </div>
       </div>

@@ -6,6 +6,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import  frontendIcon  from "../../public/images/frontend.gif";
+import  backendIcon  from "../../public/images/backend.gif";
+import  databaseIcon  from "../../public/images/database.gif";
+import  cloudIcon  from "../../public/images/cloud_server.gif";
+import  mobileIcon  from "../../public/images/mobile.gif";
+import  uiuxIcon  from "../../public/images/ui_ux.gif";
+import { CountUpStat } from "@/components/ui/CountUp";
 
 const Services = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -17,7 +24,8 @@ const Services = () => {
 
   const services = [
     {
-      icon: Code,
+      // icon: Code,
+      icon:"../../public/images/frontend.gif",
       title: "Web Development",
       description: "Custom websites and web applications built with cutting-edge technologies.",
       features: [
@@ -36,7 +44,8 @@ const Services = () => {
       rating: 4.9
     },
     {
-      icon: Smartphone,
+      // icon: Smartphone,
+      icon:mobileIcon,
       title: "App Development",
       description: "Native and cross-platform mobile applications for iOS and Android.",
       features: [
@@ -48,13 +57,14 @@ const Services = () => {
         "Backend Integration"
       ],
       technologies: ["React Native", "Swift", "Kotlin", "Flutter", "Firebase"],
-      gradient: "from-green-500 to-teal-600",
+      gradient: "from-blue-500 to-purple-600",
       bgColor: "bg-green-50 dark:bg-green-950/20",
       stats: "200+ Apps",
       rating: 4.8
     },
     {
-      icon: Palette,
+      // icon: Palette,
+      icon:"../../public/images/ui_ux.gif",
       title: "UI/UX Design",
       description: "User-centered design that converts visitors into loyal customers.",
       features: [
@@ -66,13 +76,14 @@ const Services = () => {
         "Accessibility Standards"
       ],
       technologies: ["Figma", "Adobe XD", "Sketch", "Principle", "InVision", "Maze"],
-      gradient: "from-pink-500 to-rose-600",
+      gradient: "from-blue-500 to-purple-600",
       bgColor: "bg-pink-50 dark:bg-pink-950/20",
       stats: "300+ Designs",
       rating: 4.9
     },
     {
-      icon: Database,
+      // icon: Database,
+      icon:"../../public/images/backend.gif",
       title: "Backend Development",
       description: "Robust server-side solutions and database architecture.",
       features: [
@@ -83,13 +94,14 @@ const Services = () => {
         "Performance Optimization",
       ],
       technologies: ["Node.js", "Python", "PostgreSQL", "MongoDB", "Redis", "GraphQL", "RabbitMQ", "JavaScript", "Socket.io", "Stripe", "Rozarpay", "Paypal"],
-      gradient: "from-orange-500 to-red-600",
+      gradient: "from-blue-500 to-purple-600",
       bgColor: "bg-orange-50 dark:bg-orange-950/20",
       stats: "400+ APIs",
       rating: 4.7
     },
     {
-      icon: Database,
+      // icon: Database,
+      icon:"../../public/images/database.gif",
       title: "Database Solutions",
       description: "Robust server-side solutions and database architecture.",
       features: [
@@ -99,13 +111,14 @@ const Services = () => {
         "Data Migration"
       ],
       technologies: ["PostgreSQL", "MongoDB", "Redis", "MySQL", "Microsoft SQL Server", "MariaDB", "Firebase", "Supabase"],
-      gradient: "from-indigo-500 to-blue-600",
+      gradient: "from-blue-500 to-purple-600",
       bgColor: "bg-indigo-50 dark:bg-indigo-950/20",
       stats: "150+ Databases",
       rating: 4.8
     },
     {
-      icon: Cloud,
+      // icon: Cloud,
+      icon:"../../public/images/cloud_server.gif",
       title: "Cloud Solutions",
       description: "Scalable cloud infrastructure and deployment strategies.",
       features: [
@@ -117,7 +130,7 @@ const Services = () => {
         "Backup Strategies"
       ],
       technologies: ["AWS", "Docker", "Kubernetes", "Terraform", "Jenkins", "Nginx", "Azure", "Google Cloud Platform"],
-      gradient: "from-cyan-500 to-blue-600",
+      gradient: "from-blue-500 to-purple-600",
       bgColor: "bg-cyan-50 dark:bg-cyan-950/20",
       stats: "100+ Deployments",
       rating: 4.9
@@ -146,7 +159,7 @@ const Services = () => {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-            Our <span className="gradient-text">Services</span>
+            <span className="gradient-text">Our Services</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
@@ -173,10 +186,20 @@ const Services = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={stat.label} className={`text-center transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 100}ms` }}>
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-primary rounded-2xl flex items-center justify-center shadow-elegant">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-[hsl(210,100%,25%)] via-primary to-[hsl(210,100%,30%)] rounded-2xl flex items-center justify-center shadow-elegant">
                   <stat.icon className="w-8 h-8 text-white" />
                 </div>
-                <div className="text-3xl font-bold gradient-text mb-2">{stat.value}</div>
+                <div className="text-3xl font-bold gradient-text mb-2">{stat.value === "1000+" ? 
+                  <CountUpStat
+                    value="1000+"
+                    className="text-2xl md:text-3xl font-bold gradient-text mb-1 group-hover:scale-110 transition-transform duration-300"
+                    duration={1000}
+                  /> : stat.value === "50+" ? 
+                  <CountUpStat
+                    value="50+"
+                    className="text-2xl md:text-3xl font-bold gradient-text mb-1 group-hover:scale-110 transition-transform duration-300"
+                    duration={1000}
+                  /> : stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
@@ -189,7 +212,7 @@ const Services = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              All Our <span className="gradient-text">Services</span>
+              <span className="gradient-text">All Our Services</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Explore our comprehensive range of digital solutions designed to accelerate your business growth.
@@ -215,7 +238,6 @@ const Services = () => {
                   : 'bg-background text-muted-foreground hover:bg-muted border border-border'
                   }`}
               >
-                {React.createElement(service.icon, { className: "w-4 h-4 inline mr-2" })}
                 {service.title}
               </button>
             ))}
@@ -225,8 +247,8 @@ const Services = () => {
           <div className={`transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className={`max-w-4xl mx-auto rounded-3xl p-8 md:p-12 ${services[activeService].bgColor} border border-border shadow-elegant`}>
               <div className="text-center mb-8">
-                <div className={`w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-r ${services[activeService].gradient} flex items-center justify-center shadow-elegant`}>
-                  {React.createElement(services[activeService].icon, { className: "w-10 h-10 text-white" })}
+                <div className={`w-20 h-20 mb-1 mx-auto rounded-2xl bg-gradient-to-r flex items-center justify-center shadow-none`}>
+                  <img src={services[activeService].icon} className="w-40 h-30 text-white" />
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
                   {services[activeService].title}
@@ -286,23 +308,23 @@ const Services = () => {
 
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-[hsl(210,100%,25%)] via-primary to-[hsl(210,100%,30%)] text-white relative overflow-hidden">
+      <section className="bg-muted/30 backdrop-blur-sm py-10">
         <div className="absolute inset-0 opacity-50" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }}></div>
 
-        <div className={`relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '800ms' }}>
+        <div className={`relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} >
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Ready to Start Your <span className="bg-gradient-to-r from-coral to-secondary bg-clip-text text-transparent">Project?</span>
+            <span className="gradient-text">Ready to Start Your Project?</span>
           </h2>
-          <p className="text-xl text-white/80 mb-12 max-w-2xl mx-auto">
+          <p className="text-lg mb-12 max-w-2xl mx-auto text-muted-foreground">
             Let's discuss your requirements and create something amazing together. Our team is ready to bring your vision to life.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button size="lg" className="bg-white text-primary border-0 shadow-elegant hover:shadow-coral hover:bg-white/90 transition-all duration-300 transform hover:scale-105 px-8 py-4 text-lg" asChild>
+            <Button size="lg" className="bg-white text-white border-0 shadow-elegant hover:shadow-coral transition-all duration-300 transform hover:scale-105 px-8 py-4 text-lg" asChild>
               <Link to="/contact" className="flex items-center gap-2">
                 Get Started Today <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 transition-all duration-300 transform hover:scale-105 px-8 py-4 text-lg" asChild>
+            <Button size="lg" variant="outline" className="border-blue/30 text-primary hover:text-blue-900 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 px-8 py-4 text-lg" asChild>
               <Link to="/portfolio" className="flex items-center gap-2">
                 View Our Portfolio <Eye className="w-5 h-5" />
               </Link>

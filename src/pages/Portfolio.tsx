@@ -13,7 +13,7 @@ const Portfolio = () => {
       title: "TechFlow E-Commerce Platform",
       description: "A comprehensive e-commerce solution with advanced inventory management, payment processing, and analytics dashboard. Built for scalability and performance.",
       longDescription: "This project involved creating a full-featured e-commerce platform from scratch, including user authentication, product catalog, shopping cart, payment integration with Stripe, order management, and an admin dashboard for inventory control.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop&q=80",
       category: "Web Development",
       year: "2024",
       tags: ["React", "Node.js", "MongoDB", "Stripe", "AWS", "TypeScript"],
@@ -24,7 +24,7 @@ const Portfolio = () => {
       title: "HealthTracker Mobile App", 
       description: "Cross-platform mobile application for personal health monitoring with real-time data sync and AI-powered insights.",
       longDescription: "A comprehensive health tracking application that allows users to monitor vital signs, track medications, schedule appointments, and receive personalized health insights powered by machine learning algorithms.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop&q=80",
       category: "App Development",
       year: "2024",
       tags: ["React Native", "Firebase", "TensorFlow", "Redux", "TypeScript"],
@@ -35,7 +35,7 @@ const Portfolio = () => {
       title: "MindSpace Meditation App",
       description: "Beautiful meditation and mindfulness app with guided sessions, progress tracking, and social features.",
       longDescription: "An award-winning meditation app focused on user experience and engagement. Features include guided meditation sessions, breathing exercises, progress tracking, social challenges, and premium subscription management.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=600&fit=crop&q=80",
       category: "App Development", 
       year: "2023",
       tags: ["Flutter", "Firebase", "Stripe", "Cloud Functions", "Analytics"],
@@ -46,7 +46,7 @@ const Portfolio = () => {
       title: "DataViz Analytics Dashboard",
       description: "Enterprise-level analytics dashboard with real-time data visualization and custom reporting features.",
       longDescription: "A powerful analytics platform that processes millions of data points daily, providing real-time insights through interactive charts, custom dashboards, and automated reporting for enterprise clients.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&q=80",
       category: "Web Development",
       year: "2023", 
       tags: ["Next.js", "D3.js", "PostgreSQL", "Redis", "Docker", "Kubernetes"],
@@ -57,7 +57,7 @@ const Portfolio = () => {
       title: "EduConnect Learning Platform",
       description: "Online learning management system with video streaming, interactive quizzes, and progress tracking.",
       longDescription: "A comprehensive LMS platform designed for educational institutions, featuring course management, video streaming, interactive assessments, student progress tracking, and integrated communication tools.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop&q=80",
       category: "Web Development",
       year: "2023",
       tags: ["React", "Python", "Django", "PostgreSQL", "WebRTC", "AWS"],
@@ -68,12 +68,34 @@ const Portfolio = () => {
       title: "RestaurantOS Management System",
       description: "Complete restaurant management solution with POS, inventory tracking, and customer analytics.",
       longDescription: "An all-in-one restaurant management system that streamlines operations from order taking to inventory management, including POS integration, staff scheduling, customer analytics, and financial reporting.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop&q=80",
       category: "Web Development",
       year: "2022",
       tags: ["Vue.js", "Node.js", "MySQL", "Socket.io", "Payment APIs"],
       liveUrl: "#",
       highlights: ["30% reduction in order processing time", "Real-time inventory tracking", "Multi-location support"]
+    },
+    {
+      title: "FinanceApp UI/UX Design",
+      description: "Modern banking app interface design with intuitive user experience and accessibility features.",
+      longDescription: "A comprehensive UI/UX design project for a modern banking application, featuring user research, wireframing, prototyping, and design system creation. Focus on accessibility, user trust, and intuitive navigation.",
+      image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&h=600&fit=crop&q=80",
+      category: "UI/UX Design",
+      year: "2024",
+      tags: ["Figma", "Adobe XD", "User Research", "Prototyping", "Design System"],
+      liveUrl: "#",
+      highlights: ["40% improvement in user satisfaction", "WCAG 2.1 AA compliant", "Award-winning design"]
+    },
+    {
+      title: "E-Commerce Design System",
+      description: "Complete design system and UI kit for scalable e-commerce platform.",
+      longDescription: "Created a comprehensive design system including component library, style guide, and UI kit for a large-scale e-commerce platform, ensuring consistency across all digital touchpoints.",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&q=80",
+      category: "UI/UX Design",
+      year: "2023",
+      tags: ["Figma", "Sketch", "Design System", "Component Library", "Style Guide"],
+      liveUrl: "#",
+      highlights: ["200+ reusable components", "50% faster development time", "Consistent brand identity"]
     }
   ];
 
@@ -92,7 +114,7 @@ const Portfolio = () => {
       <section className="pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Our <span className="gradient-text">Portfolio</span>
+            <span className="gradient-text">Our Portfolio</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Explore our collection of successful IT projects that showcase our expertise 
@@ -133,19 +155,9 @@ const Portfolio = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                     <div className="absolute bottom-4 left-4 right-4 flex gap-2">
-                      <Button size="sm" variant="secondary" asChild>
-                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-4 w-4 mr-1" />
-                          Live
-                        </a>
-                      </Button>
                     </div>
                   </div>
                   
-                  {/* Category Badge */}
-                  <Badge className="absolute top-4 left-4 bg-coral text-coral-foreground">
-                    {project.category}
-                  </Badge>
                 </div>
                 
                 <CardContent className="p-6">
@@ -189,17 +201,21 @@ const Portfolio = () => {
       <section className="py-20 bg-muted/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Transform Your <span className="gradient-text">IT Infrastructure?</span>
+            <span className="gradient-text">Ready to Transform Your IT Infrastructure?</span>
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
             Let's discuss your IT needs and see how we can help optimize your technology solutions and drive business growth.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild>
-              <Link to="/contact">Start Your Project</Link>
+          <Button size="lg" className="bg-white text-white border-0 shadow-elegant hover:shadow-coral transition-all duration-300 transform hover:scale-105 px-8 py-4 text-lg" asChild>
+              <Link to="/contact" className="flex items-center gap-2">
+                Start Your Project
+              </Link>
             </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link to="/services">Our Services</Link>
+            <Button size="lg" variant="outline" className="border-blue/30 text-primary hover:text-blue-900 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 px-14 py-4 text-lg" asChild>
+              <Link to="/services" className="flex items-center gap-2">
+                Our Services
+              </Link>
             </Button>
           </div>
         </div>
