@@ -12,22 +12,15 @@ const Contact = () => {
       icon: Mail,
       title: "Email Us",
       description: "Send us an email and we'll respond within 24 hours",
-      contact: "hello@zylate.com",
-      action: "mailto:hello@zylate.com"
+      contact: "zylateinfotech@gmail.com",
+      action: "mailto:zylateinfotech@gmail.com"
     },
     {
       icon: Phone,
       title: "Call Us",
-      description: "Speak directly with our team during business hours", 
-      contact: "+1 (555) 123-4567",
-      action: "tel:+15551234567"
-    },
-    {
-      icon: MessageCircle,
-      title: "Live Chat",
-      description: "Get instant answers to your questions",
-      contact: "Available 9AM-6PM PST",
-      action: "#"
+      description: "Speak directly with our team during business hours",
+      contact: `+91 7383168307`,
+      action: "tel:+917383168307"
     }
   ];
 
@@ -35,36 +28,35 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Office Location",
-      details: ["123 Innovation Drive", "Suite 100", "San Francisco, CA 94105"]
+      details: ["207 Ambika pinecale", "Mota Varachha", "Surat Gujarat 394101"]
     },
     {
       icon: Clock,
       title: "Business Hours",
-      details: ["Monday - Friday: 9:00 AM - 6:00 PM", "Saturday: 10:00 AM - 4:00 PM", "Sunday: Closed"]
-    },
-    {
-      icon: Calendar,
-      title: "Schedule a Meeting",
-      details: ["Book a free consultation", "30-minute discovery call", "Project planning session"]
+      details: ["Monday - Friday: 10:00 AM - 7:00 PM", "Saturday: 10:00 AM - 1:00 PM", "Sunday: Closed"]
     }
   ];
 
   const faqs = [
     {
-      question: "How long does a typical project take?",
-      answer: "Project timelines vary based on complexity and scope. Simple websites typically take 2-4 weeks, while complex web applications can take 8-16 weeks. We'll provide a detailed timeline during our initial consultation."
+      question: "What IT services do you provide?",
+      answer: "We offer comprehensive IT services including software development, cloud services (AWS, Azure, GCP), cybersecurity solutions, network management, mobile app development, and 24/7 IT support. We can customize our services to meet your specific business needs."
     },
     {
-      question: "Do you offer ongoing support and maintenance?",
-      answer: "Yes! We provide comprehensive support and maintenance packages to keep your website or application running smoothly. This includes security updates, bug fixes, performance optimization, and content updates."
+      question: "Do you provide 24/7 IT support?",
+      answer: "Yes! We offer round-the-clock IT support services to ensure your systems are always running smoothly. Our help desk is available 24/7 for technical assistance, troubleshooting, and emergency support."
     },
     {
-      question: "What's your development process like?",
-      answer: "We follow an agile development process with regular check-ins and deliverables. You'll have full visibility into the project progress and opportunities to provide feedback at each stage."
+      question: "Can you help with cloud migration?",
+      answer: "Absolutely! We specialize in cloud migration services for AWS, Azure, and Google Cloud Platform. We handle the entire migration process including planning, execution, and optimization to ensure minimal downtime and maximum efficiency."
     },
     {
-      question: "Can you work with our existing design or brand guidelines?",
-      answer: "Absolutely! We can work with your existing brand guidelines, design system, or create something completely new. We're flexible and adapt to your specific needs and preferences."
+      question: "What industries do you serve?",
+      answer: "We serve businesses across various industries including healthcare, finance, retail, manufacturing, education, and more. Our IT solutions are tailored to meet industry-specific requirements and compliance standards."
+    },
+    {
+      question: "Do you offer cybersecurity services?",
+      answer: "Yes! We provide comprehensive cybersecurity services including security audits, threat monitoring, data protection, compliance support, and security training. We help protect your business from cyber threats and ensure regulatory compliance."
     }
   ];
 
@@ -76,11 +68,11 @@ const Contact = () => {
       <section className="pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Get In <span className="gradient-text">Touch</span>
+            <span className="gradient-text">Get In Touch</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to start your next project? We'd love to hear from you. 
-            Reach out and let's discuss how we can help bring your vision to life.
+            Ready to enhance your IT infrastructure? We'd love to hear from you. 
+            Reach out and let's discuss how we can help optimize your technology solutions and drive business growth.
           </p>
         </div>
       </section>
@@ -88,22 +80,29 @@ const Contact = () => {
       {/* Contact Methods */}
       <section className="pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="flex justify-center gap-8 mb-16 flex-wrap">
             {contactMethods.map((method) => (
               <Card key={method.title} className="text-center hover:shadow-elegant transition-all duration-300 group">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-gradient-coral rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[hsl(210,100%,25%)] via-primary to-[hsl(210,100%,30%)] rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <method.icon className="h-6 w-6 text-coral-foreground" />
                   </div>
                   <CardTitle className="text-xl">{method.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">{method.description}</p>
+                  <div className="flex flex-row justify-center items-center gap-2">
                   <Button variant="outline" asChild>
                     <a href={method.action}>
                       {method.contact}
                     </a>
                   </Button>
+                  {method.contact == "+91 7383168307" ? <Button variant="outline" asChild>
+                    <a href="tel:+918401446125">
+                    +91 8401446125
+                    </a>
+                  </Button> : ""}
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -116,22 +115,24 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form */}
-            <div>
+            <div className="flex flex-col items-start justify-start">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                Send Us a <span className="gradient-text">Message</span>
+                <span className="gradient-text">Send Us a Message</span>
               </h2>
               <p className="text-muted-foreground mb-8">
                 Fill out the form below and we'll get back to you within 24 hours. 
                 The more details you provide, the better we can assist you.
               </p>
+              <div className="flex flex-col items-start justify-start">
               <ContactForm />
+              </div>
             </div>
 
             {/* Office Information */}
             <div className="space-y-8">
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold mb-8">
-                  Visit Our <span className="gradient-text">Office</span>
+                  <span className="gradient-text">Visit Our Office</span>
                 </h2>
               </div>
               
@@ -139,7 +140,7 @@ const Contact = () => {
                 <Card key={info.title} className="hover:shadow-elegant transition-all duration-300">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className="w-10 h-10 bg-gradient-coral rounded-lg flex items-center justify-center flex-shrink-0">
+                      <div className="w-10 h-10 bg-gradient-to-br from-[hsl(210,100%,25%)] via-primary to-[hsl(210,100%,30%)] rounded-lg flex items-center justify-center flex-shrink-0">
                         <info.icon className="h-5 w-5 text-coral-foreground" />
                       </div>
                       <div>
@@ -157,17 +158,17 @@ const Contact = () => {
                 </Card>
               ))}
 
-              {/* Map Placeholder */}
+              {/* Interactive Map */}
               <Card className="overflow-hidden">
-                <div className="h-64 bg-muted flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="h-12 w-12 text-muted-foreground mx-auto mb-2" />
-                    <p className="text-muted-foreground">Interactive Map</p>
-                    <p className="text-sm text-muted-foreground">
-                      123 Innovation Drive, San Francisco, CA
-                    </p>
-                  </div>
-                </div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d17647.407344977422!2d72.8858624!3d21.219082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1763105885011!5m2!1sen!2sin"
+                  width="100%"
+                  height="256"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </Card>
             </div>
           </div>
@@ -179,7 +180,7 @@ const Contact = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Frequently Asked <span className="gradient-text">Questions</span>
+              <span className="gradient-text">Frequently Asked Questions</span>
             </h2>
             <p className="text-xl text-muted-foreground">
               Quick answers to common questions about our services and process.

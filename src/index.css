@@ -9,87 +9,88 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 210 19% 24%;
-    
-    /* Brand Colors */
-    --primary: 210 19% 24%; /* Dark Blue */
+    --foreground: 210 100% 25%; /* Deep Navy Blue */
+
+    /* Brand Colors - Modern IT Services Palette */
+    --primary: 210 100% 35%; /* Professional Deep Blue */
     --primary-foreground: 0 0% 100%;
-    --primary-light: 215 16% 47%;
-    
-    --coral: 9 100% 70%; /* Coral Accent */
+    --primary-light: 210 100% 55%;
+
+    --coral: 195 100% 50%; /* Bright Cyan/Sky Blue */
     --coral-foreground: 0 0% 100%;
-    --coral-light: 9 100% 85%;
-    
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 210 19% 24%;
-    
+    --coral-light: 195 100% 70%;
+
+    --secondary: 25 95% 53%; /* Vibrant Orange */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 25 95% 65%;
+
     /* Surface Colors */
     --card: 0 0% 100%;
-    --card-foreground: 210 19% 24%;
-    
-    --muted: 215 16% 97%;
-    --muted-foreground: 215 16% 47%;
-    
-    --accent: 215 16% 97%;
-    --accent-foreground: 210 19% 24%;
-    
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(210 19% 24%), hsl(215 16% 47%));
-    --gradient-coral: linear-gradient(135deg, hsl(9 100% 70%), hsl(9 100% 80%));
-    --gradient-hero: linear-gradient(135deg, hsl(210 19% 24%) 0%, hsl(215 16% 47%) 50%, hsl(9 100% 70%) 100%);
-    
+    --card-foreground: 210 100% 25%;
+
+    --muted: 210 20% 97%;
+    --muted-foreground: 210 20% 45%;
+
+    --accent: 195 30% 96%;
+    --accent-foreground: 210 100% 35%;
+
+    /* Gradients - Modern Tech Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 55%), hsl(195 100% 50%));
+    --gradient-coral: linear-gradient(135deg, hsl(195 100% 50%), hsl(25 95% 53%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 100% 55%) 0%, hsl(195 100% 50%) 50%, hsl(25 95% 53%) 100%);
+
     /* Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(210 19% 24% / 0.1);
-    --shadow-coral: 0 10px 30px -10px hsl(9 100% 70% / 0.2);
-    
+    --shadow-elegant: 0 10px 30px -10px hsl(210 100% 35% / 0.15);
+    --shadow-coral: 0 10px 30px -10px hsl(195 100% 50% / 0.25);
+
     /* UI Elements */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 215 16% 92%;
-    --input: 215 16% 92%;
-    --ring: 210 19% 24%;
-    
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 210 100% 35%;
+
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 210 20% 98%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-foreground: 210 5.3% 26.1%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary: 210 5.9% 10%;
 
     --sidebar-primary-foreground: 0 0% 98%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent: 195 4.8% 95.9%;
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-accent-foreground: 210 5.9% 10%;
 
-    --sidebar-border: 220 13% 91%;
+    --sidebar-border: 210 13% 91%;
 
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 195 100% 50%;
   }
 
   .dark {
-    --background: 210 19% 16%;
+    --background: 210 100% 8%;
     --foreground: 0 0% 100%;
-    
-    --primary: 0 0% 100%;
-    --primary-foreground: 210 19% 24%;
-    
-    --card: 210 19% 18%;
+
+    --primary: 195 100% 60%;
+    --primary-foreground: 210 100% 8%;
+
+    --card: 210 100% 12%;
     --card-foreground: 0 0% 100%;
-    
-    --muted: 210 19% 20%;
-    --muted-foreground: 215 16% 70%;
-    
-    --accent: 210 19% 20%;
+
+    --muted: 210 100% 15%;
+    --muted-foreground: 210 20% 75%;
+
+    --accent: 195 100% 20%;
     --accent-foreground: 0 0% 100%;
-    
-    --border: 210 19% 25%;
-    --input: 210 19% 25%;
-    --ring: 0 0% 100%;
-    
-    --gradient-hero: linear-gradient(135deg, hsl(210 19% 16%) 0%, hsl(215 16% 30%) 50%, hsl(9 100% 70%) 100%);
+
+    --border: 210 100% 20%;
+    --input: 210 100% 20%;
+    --ring: 195 100% 60%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(210 100% 8%) 0%, hsl(210 100% 20%) 50%, hsl(195 100% 40%) 100%);
   }
 }
 
@@ -109,7 +110,19 @@ All colors MUST be HSL.
 
 @layer components {
   .gradient-text {
-    @apply bg-gradient-to-r from-primary via-primary-light to-coral bg-clip-text text-transparent;
+    background: linear-gradient(135deg, hsl(210, 99%, 30%) 0%, hsl(195, 97%, 28%) 50%, hsl(200, 68%, 49%) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  
+  .dark .gradient-text {
+    background: linear-gradient(135deg, hsl(195 100% 65%) 0%, hsl(200 100% 70%) 50%, hsl(195 100% 75%) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
   }
   
   .hero-gradient {
@@ -137,6 +150,30 @@ All colors MUST be HSL.
   .animate-delay-300 {
     animation-delay: 0.3s;
   }
+
+  .animate-scale-up {
+    animation: scaleUp 0.5s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.5s ease-out forwards;
+  }
+
+  .animate-slide-left {
+    animation: slideLeft 0.5s ease-out forwards;
+  }
+
+  .animate-slide-right {
+    animation: slideRight 0.5s ease-out forwards;
+  }
 }
 
 @layer utilities {
@@ -158,5 +195,82 @@ All colors MUST be HSL.
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes cursor-blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.animate-cursor-blink {
+  animation: cursor-blink 1s infinite;
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

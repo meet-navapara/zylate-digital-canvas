@@ -30,29 +30,46 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    toast({
-      title: "Message sent successfully!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        service: "",
-        message: "",
+
+    try {
+      const response = await fetch("https://script.google.com/macros/s/AKfycby3CVHhKBuX3_IoGur6LeEC0prr4uRmCkP7zMZ1l4uaaojynkdBGwbBCWRI3SJa6zMI/exec", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData),
+         mode: "no-cors" 
       });
-      setIsSubmitted(false);
-    }, 3000);
+
+toast({
+  title: "Message sent successfully!",
+  description: "We'll get back to you within 24 hours.",
+  variant:"default"
+
+});
+
+        setIsSubmitted(true);
+        toast({
+          title: "Message sent successfully!",
+          description: "We'll get back to you within 24 hours.",
+        });
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          service: "",
+          message: "",
+        });
+      
+    } catch (error) {
+      toast({
+        title: "Error sending message",
+        description: (error as Error).message,
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {

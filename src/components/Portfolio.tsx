@@ -1,73 +1,84 @@
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, ShoppingCart, CheckSquare, Activity } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Portfolio = () => {
+  const [imageErrors, setImageErrors] = useState<{ [key: string]: boolean }>({});
+
   const projects = [
     {
       title: "E-Commerce Platform",
       description: "Full-stack e-commerce solution with payment processing and inventory management.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+      icon: ShoppingCart,
+      gradient: "from-primary via-coral to-secondary",
       tags: ["React", "Node.js", "MongoDB", "Stripe"],
       liveUrl: "#",
-      githubUrl: "#",
     },
     {
       title: "Task Management App",
       description: "Collaborative project management tool with real-time updates and team features.",
-      image: "/placeholder.svg", 
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
+      icon: CheckSquare,
+      gradient: "from-coral via-primary to-secondary",
       tags: ["React Native", "Firebase", "TypeScript"],
       liveUrl: "#",
-      githubUrl: "#",
     },
     {
       title: "Healthcare Dashboard",
       description: "Medical practice management system with patient records and scheduling.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=600&fit=crop&q=80",
+      icon: Activity,
+      gradient: "from-secondary via-coral to-primary",
       tags: ["Next.js", "PostgreSQL", "Tailwind"],
       liveUrl: "#",
-      githubUrl: "#",
     },
   ];
 
+  const handleImageError = (projectTitle: string) => {
+    setImageErrors(prev => ({ ...prev, [projectTitle]: true }));
+  };
+
   return (
-    <section className="py-20">
+    <section className="py-5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Our Latest <span className="gradient-text">Projects</span>
+            <span className="gradient-text">Our Latest Projects</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Explore our portfolio of successful projects that showcase our expertise and creativity.
+            Explore our portfolio of successful IT projects that showcase our expertise in software development, 
+            cloud solutions, and enterprise IT systems.
           </p>
         </div>
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {projects.map((project, index) => {
+            const IconComponent = project.icon;
+            const showPlaceholder = imageErrors[project.title] || project.image === "/placeholder.svg" || !project.image;
+            
+            return (
             <Card key={project.title} className="group overflow-hidden border-0 bg-background shadow-elegant hover:shadow-coral transition-all duration-300">
-              <div className="relative overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-48 object-cover transition-transform group-hover:scale-105"
-                />
+              <div className="relative overflow-hidden h-48 bg-muted">
+                {showPlaceholder ? (
+                  <div className={`w-full h-full bg-gradient-to-br ${project.gradient} flex items-center justify-center transition-transform group-hover:scale-105`}>
+                    <IconComponent className="w-16 h-16 text-white opacity-80" />
+                  </div>
+                ) : (
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                    onError={() => handleImageError(project.title)}
+                    loading="lazy"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                   <div className="absolute bottom-4 left-4 right-4 flex gap-2">
-                    <Button size="sm" variant="secondary" asChild>
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="h-4 w-4 mr-1" />
-                        Live
-                      </a>
-                    </Button>
-                    <Button size="sm" variant="secondary" asChild>
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="h-4 w-4 mr-1" />
-                        Code
-                      </a>
-                    </Button>
                   </div>
                 </div>
               </div>
@@ -88,7 +99,8 @@ const Portfolio = () => {
                 </div>
               </CardContent>
             </Card>
-          ))}
+            );
+          })}
         </div>
 
         {/* CTA */}
