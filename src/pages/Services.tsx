@@ -6,12 +6,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import  frontendIcon  from "../../public/images/frontend.gif";
-import  backendIcon  from "../../public/images/backend.gif";
-import  databaseIcon  from "../../public/images/database.gif";
-import  cloudIcon  from "../../public/images/cloud_server.gif";
-import  mobileIcon  from "../../public/images/mobile.gif";
-import  uiuxIcon  from "../../public/images/ui_ux.gif";
+// import  frontendIcon  from "../../dist/images/frontend.gif";
+// import  backendIcon  from "../../dist/images/backend.gif";
+// import  databaseIcon  from "../../dist/images/database.gif";
+// import  cloudIcon  from "../../dist/images/cloud_server.gif";
+// import  mobileIcon  from "../../dist/images/mobile.gif";
+// import  uiuxIcon  from "../../dist/images/ui_ux.gif";
 import { CountUpStat } from "@/components/ui/CountUp";
 
 const Services = () => {
@@ -25,7 +25,7 @@ const Services = () => {
   const services = [
     {
       // icon: Code,
-      icon:"../../public/images/frontend.gif",
+      icon:"/images/frontend.gif",
       title: "Web Development",
       description: "Custom websites and web applications built with cutting-edge technologies.",
       features: [
@@ -45,7 +45,7 @@ const Services = () => {
     },
     {
       // icon: Smartphone,
-      icon:mobileIcon,
+      icon:"/images/mobile.gif",
       title: "App Development",
       description: "Native and cross-platform mobile applications for iOS and Android.",
       features: [
@@ -64,7 +64,7 @@ const Services = () => {
     },
     {
       // icon: Palette,
-      icon:"../../public/images/ui_ux.gif",
+      icon:"/images/ui_ux.gif",
       title: "UI/UX Design",
       description: "User-centered design that converts visitors into loyal customers.",
       features: [
@@ -83,7 +83,7 @@ const Services = () => {
     },
     {
       // icon: Database,
-      icon:"../../public/images/backend.gif",
+      icon:"/images/backend.gif",
       title: "Backend Development",
       description: "Robust server-side solutions and database architecture.",
       features: [
@@ -101,7 +101,7 @@ const Services = () => {
     },
     {
       // icon: Database,
-      icon:"../../public/images/database.gif",
+      icon:"/images/database.gif",
       title: "Database Solutions",
       description: "Robust server-side solutions and database architecture.",
       features: [
@@ -118,7 +118,7 @@ const Services = () => {
     },
     {
       // icon: Cloud,
-      icon:"../../public/images/cloud_server.gif",
+      icon:"/images/cloud_server.gif",
       title: "Cloud Solutions",
       description: "Scalable cloud infrastructure and deployment strategies.",
       features: [
@@ -247,8 +247,8 @@ const Services = () => {
           <div className={`transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className={`max-w-4xl mx-auto rounded-3xl p-8 md:p-12 ${services[activeService].bgColor} border border-border shadow-elegant`}>
               <div className="text-center mb-8">
-                <div className={`w-20 h-20 mb-1 mx-auto rounded-2xl bg-gradient-to-r flex items-center justify-center shadow-none`}>
-                  <img src={services[activeService].icon} className="w-40 h-30 text-white" />
+                <div className={`w-20 h-20 mb-1 mx-auto rounded-2xl bg-gradient-to-r flex items-center justify-center shadow-none overflow-hidden`}>
+                  <img src={services[activeService].icon} alt={services[activeService].title} className="w-full h-full object-contain" />
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
                   {services[activeService].title}
