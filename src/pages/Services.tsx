@@ -6,12 +6,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import  frontendIcon  from "../../public/images/frontend.gif";
-import  backendIcon  from "../../public/images/backend.gif";
-import  databaseIcon  from "../../public/images/database.gif";
-import  cloudIcon  from "../../public/images/cloud_server.gif";
-import  mobileIcon  from "../../public/images/mobile.gif";
-import  uiuxIcon  from "../../public/images/ui_ux.gif";
+// import  frontendIcon  from "../../dist/images/frontend.gif";
+// import  backendIcon  from "../../dist/images/backend.gif";
+// import  databaseIcon  from "../../dist/images/database.gif";
+// import  cloudIcon  from "../../dist/images/cloud_server.gif";
+// import  mobileIcon  from "../../dist/images/mobile.gif";
+// import  uiuxIcon  from "../../dist/images/ui_ux.gif";
 import { CountUpStat } from "@/components/ui/CountUp";
 
 const Services = () => {
@@ -25,7 +25,7 @@ const Services = () => {
   const services = [
     {
       // icon: Code,
-      icon:"../../public/images/frontend.gif",
+      icon:"../../dist/images/frontend.gif",
       title: "Web Development",
       description: "Custom websites and web applications built with cutting-edge technologies.",
       features: [
@@ -45,7 +45,7 @@ const Services = () => {
     },
     {
       // icon: Smartphone,
-      icon:mobileIcon,
+      icon:"../../dist/images/mobile.gif",
       title: "App Development",
       description: "Native and cross-platform mobile applications for iOS and Android.",
       features: [
@@ -64,7 +64,7 @@ const Services = () => {
     },
     {
       // icon: Palette,
-      icon:"../../public/images/ui_ux.gif",
+      icon:"../../dist/images/ui_ux.gif",
       title: "UI/UX Design",
       description: "User-centered design that converts visitors into loyal customers.",
       features: [
@@ -83,7 +83,7 @@ const Services = () => {
     },
     {
       // icon: Database,
-      icon:"../../public/images/backend.gif",
+      icon:"../../dist/images/backend.gif",
       title: "Backend Development",
       description: "Robust server-side solutions and database architecture.",
       features: [
@@ -101,7 +101,7 @@ const Services = () => {
     },
     {
       // icon: Database,
-      icon:"../../public/images/database.gif",
+      icon:"../../dist/images/database.gif",
       title: "Database Solutions",
       description: "Robust server-side solutions and database architecture.",
       features: [
@@ -118,7 +118,7 @@ const Services = () => {
     },
     {
       // icon: Cloud,
-      icon:"../../public/images/cloud_server.gif",
+      icon:"../../dist/images/cloud_server.gif",
       title: "Cloud Solutions",
       description: "Scalable cloud infrastructure and deployment strategies.",
       features: [
