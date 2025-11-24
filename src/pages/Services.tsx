@@ -63,9 +63,8 @@ const Services = () => {
       rating: 4.8
     },
     {
-      icon:"../../public/images/ui_ux.gif",
       // icon: Palette,
-      // icon:"../../public/images/web_design_Lottie_animation.gif",
+      icon:"../../public/images/ui_ux.gif",
       title: "UI/UX Design",
       description: "User-centered design that converts visitors into loyal customers.",
       features: [
