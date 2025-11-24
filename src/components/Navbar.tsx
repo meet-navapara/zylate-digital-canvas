@@ -22,11 +22,12 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            {/* <div className="w-8 h-8 bg-gradient-coral rounded-lg flex items-center justify-center">
-              <img src="/logo.png" alt="Zylate Logo" className="w-8 h-8 rounded-lg" />
-            </div> */}
-            <span className="text-[33px] font-bold gradient-text">Zylate</span>
+          <Link to="/" className="">
+            <img 
+              src="/images/ChatGPT.png" 
+              alt="Zylate" 
+              className="h-16 w-18 object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}

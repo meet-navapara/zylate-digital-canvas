@@ -14,15 +14,7 @@ import { useEffect, useState } from "react";
 // import  uiuxIcon  from "../../dist/images/ui_ux.gif";
 import { CountUpStat } from "@/components/ui/CountUp";
 
-const Services = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [activeService, setActiveService] = useState(0);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
-  const services = [
+const services = [
     {
       // icon: Code,
       icon:"/images/frontend.gif",
@@ -135,7 +127,53 @@ const Services = () => {
       stats: "100+ Deployments",
       rating: 4.9
     }
-  ];
+];
+
+const Services = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [activeService, setActiveService] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState<{ [key: number]: boolean }>({});
+  const [imagesPreloaded, setImagesPreloaded] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  // Preload all service images after initial render
+  useEffect(() => {
+    const preloadImages = () => {
+      services.forEach((service, index) => {
+        const img = new Image();
+        img.src = service.icon;
+        img.onload = () => {
+          setImageLoaded(prev => ({ ...prev, [index]: true }));
+        };
+      });
+      setImagesPreloaded(true);
+    };
+    
+    // Preload images after a short delay to not block initial render
+    const timer = setTimeout(preloadImages, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Preload adjacent images when active service changes
+  useEffect(() => {
+    const preloadAdjacent = () => {
+      const prevIndex = activeService > 0 ? activeService - 1 : services.length - 1;
+      const nextIndex = activeService < services.length - 1 ? activeService + 1 : 0;
+      
+      [prevIndex, nextIndex].forEach(index => {
+        const img = new Image();
+        img.src = services[index].icon;
+        img.onload = () => {
+          setImageLoaded(prev => ({ ...prev, [index]: true }));
+        };
+      });
+    };
+    
+    preloadAdjacent();
+  }, [activeService]);
 
   const stats = [
     { icon: Users, value: "1000+", label: "Happy Clients" },
@@ -149,31 +187,31 @@ const Services = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 hero-gradient opacity-10"></div>
         <div className="absolute inset-0 opacity-40" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }}></div>
 
         <div className={`relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-muted/80 backdrop-blur-sm border border-border mb-8">
-            <span className="text-sm font-medium text-muted-foreground">What We Offer</span>
+          <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-muted/80 backdrop-blur-sm border border-border mb-6 sm:mb-8">
+            <span className="text-xs sm:text-sm font-medium text-muted-foreground">What We Offer</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 px-2">
             <span className="gradient-text">Our Services</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4">
             We provide comprehensive digital solutions to help your business succeed in the modern digital landscape.
             From concept to deployment, we've got you covered.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="shadow-elegant hover:shadow-coral transition-all duration-300 transform hover:scale-105 text-sm sm:text-base" asChild>
-              <Link to="/contact" className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+            <Button size="lg" className="shadow-elegant hover:shadow-coral transition-all duration-300 transform hover:scale-105 text-sm sm:text-base w-full sm:w-auto" asChild>
+              <Link to="/contact" className="flex items-center justify-center gap-2">
                 Get Started <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-border hover:bg-muted transition-all duration-300 text-sm sm:text-base" asChild>
+            <Button size="lg" variant="outline" className="border-border hover:bg-muted transition-all duration-300 text-sm sm:text-base w-full sm:w-auto" asChild>
               <Link to="/portfolio">View Our Work</Link>
             </Button>
           </div>
@@ -181,26 +219,26 @@ const Services = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-muted/30 backdrop-blur-sm">
+      <section className="py-12 sm:py-16 bg-muted/30 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {stats.map((stat, index) => (
               <div key={stat.label} className={`text-center transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 100}ms` }}>
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-[hsl(210,100%,25%)] via-primary to-[hsl(210,100%,30%)] rounded-2xl flex items-center justify-center shadow-elegant">
-                  <stat.icon className="w-8 h-8 text-white" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto mb-3 sm:mb-4 bg-gradient-to-br from-[hsl(210,100%,25%)] via-primary to-[hsl(210,100%,30%)] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-elegant">
+                  <stat.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                 </div>
-                <div className="text-3xl font-bold gradient-text mb-2">{stat.value === "1000+" ? 
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text mb-1 sm:mb-2">{stat.value === "1000+" ? 
                   <CountUpStat
                     value="1000+"
-                    className="text-2xl md:text-3xl font-bold gradient-text mb-1 group-hover:scale-110 transition-transform duration-300"
+                    className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text mb-1 group-hover:scale-110 transition-transform duration-300"
                     duration={1000}
                   /> : stat.value === "50+" ? 
                   <CountUpStat
                     value="50+"
-                    className="text-2xl md:text-3xl font-bold gradient-text mb-1 group-hover:scale-110 transition-transform duration-300"
+                    className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text mb-1 group-hover:scale-110 transition-transform duration-300"
                     duration={1000}
                   /> : stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-xs sm:text-sm text-muted-foreground px-1">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -208,13 +246,13 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="bg-muted/30 backdrop-blur-sm">
+      <section className="bg-muted/30 backdrop-blur-sm py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
               <span className="gradient-text">All Our Services</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
               Explore our comprehensive range of digital solutions designed to accelerate your business growth.
             </p>
           </div>
@@ -225,15 +263,15 @@ const Services = () => {
       </section>
 
       {/* Services Interactive Section */}
-      <section className="py-20">
+      <section className="py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Service Navigation */}
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-12 md:mb-16">
             {services.map((service, index) => (
               <button
                 key={service.title}
                 onClick={() => setActiveService(index)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${activeService === index
+                className={`px-3 py-2 sm:px-4 sm:py-2.5 md:px-6 md:py-3 rounded-full text-xs sm:text-sm md:text-base font-medium transition-all duration-300 transform hover:scale-105 ${activeService === index
                   ? `bg-gradient-to-r ${service.gradient} text-white shadow-elegant`
                   : 'bg-background text-muted-foreground hover:bg-muted border border-border'
                   }`}
@@ -245,38 +283,47 @@ const Services = () => {
 
           {/* Active Service Display */}
           <div className={`transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className={`max-w-4xl mx-auto rounded-3xl p-8 md:p-12 ${services[activeService].bgColor} border border-border shadow-elegant`}>
-              <div className="text-center mb-8">
-                <div className={`w-20 h-20 mb-1 mx-auto rounded-2xl bg-gradient-to-r flex items-center justify-center shadow-none overflow-hidden`}>
-                  <img src={services[activeService].icon} alt={services[activeService].title} className="w-full h-full object-contain" />
+            <div className={`max-w-4xl mx-auto rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 ${services[activeService].bgColor} border border-border shadow-elegant`}>
+              <div className="text-center mb-6 sm:mb-8">
+                <div className={`w-16 h-16 sm:w-20 sm:h-20 mb-1 mx-auto rounded-xl sm:rounded-2xl bg-gradient-to-r flex items-center justify-center shadow-none overflow-hidden relative`}>
+                  {!imageLoaded[activeService] && (
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 animate-pulse rounded-xl sm:rounded-2xl"></div>
+                  )}
+                  <img 
+                    src={services[activeService].icon} 
+                    alt={services[activeService].title} 
+                    className={`w-full h-full object-contain transition-opacity duration-300 ${imageLoaded[activeService] ? 'opacity-100' : 'opacity-0'}`}
+                    loading={activeService === 0 ? "eager" : "lazy"}
+                    onLoad={() => setImageLoaded(prev => ({ ...prev, [activeService]: true }))}
+                  />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                   {services[activeService].title}
                 </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
+                <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-4 sm:mb-6 px-2">
                   {services[activeService].description}
                 </p>
-                <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-muted-foreground">
                   <span className="flex items-center gap-1">
-                    <Star className="w-4 h-4 text-secondary fill-current" />
+                    <Star className="w-3 h-3 sm:w-4 sm:h-4 text-secondary fill-current" />
                     {services[activeService].rating}
                   </span>
                   <span>{services[activeService].stats}</span>
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 {/* Features */}
                 <div>
-                  <h3 className="text-xl font-semibold mb-6 text-foreground flex items-center">
-                    <CheckCircle className="w-5 h-5 text-coral mr-2" />
-                    What We Offer
+                  <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-foreground flex items-center">
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-coral mr-2 flex-shrink-0" />
+                    <span>What We Offer</span>
                   </h3>
-                  <ul className="space-y-3">
+                  <ul className="space-y-2 sm:space-y-3">
                     {services[activeService].features.map((feature, index) => (
                       <li key={feature} className="flex items-start text-muted-foreground">
                         <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${services[activeService].gradient} mt-2 mr-3 flex-shrink-0`}></div>
-                        <span className="text-sm leading-relaxed">{feature}</span>
+                        <span className="text-xs sm:text-sm leading-relaxed">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -284,15 +331,15 @@ const Services = () => {
 
                 {/* Technologies */}
                 <div>
-                  <h3 className="text-xl font-semibold mb-6 text-foreground flex items-center">
-                    <Code className="w-5 h-5 text-primary mr-2" />
-                    Technologies
+                  <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-foreground flex items-center">
+                    <Code className="w-4 h-4 sm:w-5 sm:h-5 text-primary mr-2 flex-shrink-0" />
+                    <span>Technologies</span>
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {services[activeService].technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-background text-foreground text-xs rounded-full border border-border hover:border-primary transition-colors duration-200"
+                        className="px-2 py-1 sm:px-3 sm:py-1 bg-background text-foreground text-xs rounded-full border border-border hover:border-primary transition-colors duration-200"
                       >
                         {tech}
                       </span>
@@ -308,25 +355,25 @@ const Services = () => {
 
 
       {/* CTA Section */}
-      <section className="bg-muted/30 backdrop-blur-sm py-10">
+      <section className="bg-muted/30 backdrop-blur-sm py-8 sm:py-10 relative">
         <div className="absolute inset-0 opacity-50" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }}></div>
 
         <div className={`relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} >
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-2">
             <span className="gradient-text">Ready to Start Your Project?</span>
           </h2>
-          <p className="text-lg mb-12 max-w-2xl mx-auto text-muted-foreground">
+          <p className="text-base sm:text-lg mb-8 sm:mb-12 max-w-2xl mx-auto text-muted-foreground px-4">
             Let's discuss your requirements and create something amazing together. Our team is ready to bring your vision to life.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button size="lg" className="bg-white text-white border-0 shadow-elegant hover:shadow-coral transition-all duration-300 transform hover:scale-105 px-8 py-4 text-lg" asChild>
-              <Link to="/contact" className="flex items-center gap-2">
-                Get Started Today <ArrowRight className="w-5 h-5" />
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4">
+            <Button size="lg" className="bg-white text-white border-0 shadow-elegant hover:shadow-coral transition-all duration-300 transform hover:scale-105 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg w-full sm:w-auto" asChild>
+              <Link to="/contact" className="flex items-center justify-center gap-2">
+                Get Started Today <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-blue/30 text-primary hover:text-blue-900 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 px-8 py-4 text-lg" asChild>
-              <Link to="/portfolio" className="flex items-center gap-2">
-                View Our Portfolio <Eye className="w-5 h-5" />
+            <Button size="lg" variant="outline" className="border-blue/30 text-primary hover:text-blue-900 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg w-full sm:w-auto" asChild>
+              <Link to="/portfolio" className="flex items-center justify-center gap-2">
+                View Our Portfolio <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
               </Link>
             </Button>
           </div>
