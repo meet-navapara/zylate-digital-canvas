@@ -25,7 +25,7 @@ const Services = () => {
   const services = [
     {
       // icon: Code,
-      icon:"../../dist/images/frontend.gif",
+      icon:"/images/frontend.gif",
       title: "Web Development",
       description: "Custom websites and web applications built with cutting-edge technologies.",
       features: [
@@ -45,7 +45,7 @@ const Services = () => {
     },
     {
       // icon: Smartphone,
-      icon:"../../dist/images/mobile.gif",
+      icon:"/images/mobile.gif",
       title: "App Development",
       description: "Native and cross-platform mobile applications for iOS and Android.",
       features: [
@@ -64,7 +64,7 @@ const Services = () => {
     },
     {
       // icon: Palette,
-      icon:"../../dist/images/ui_ux.gif",
+      icon:"/images/ui_ux.gif",
       title: "UI/UX Design",
       description: "User-centered design that converts visitors into loyal customers.",
       features: [
@@ -83,7 +83,7 @@ const Services = () => {
     },
     {
       // icon: Database,
-      icon:"../../dist/images/backend.gif",
+      icon:"/images/backend.gif",
       title: "Backend Development",
       description: "Robust server-side solutions and database architecture.",
       features: [
@@ -101,7 +101,7 @@ const Services = () => {
     },
     {
       // icon: Database,
-      icon:"../../dist/images/database.gif",
+      icon:"/images/database.gif",
       title: "Database Solutions",
       description: "Robust server-side solutions and database architecture.",
       features: [
@@ -118,7 +118,7 @@ const Services = () => {
     },
     {
       // icon: Cloud,
-      icon:"../../dist/images/cloud_server.gif",
+      icon:"/images/cloud_server.gif",
       title: "Cloud Solutions",
       description: "Scalable cloud infrastructure and deployment strategies.",
       features: [
@@ -247,8 +247,8 @@ const Services = () => {
           <div className={`transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className={`max-w-4xl mx-auto rounded-3xl p-8 md:p-12 ${services[activeService].bgColor} border border-border shadow-elegant`}>
               <div className="text-center mb-8">
-                <div className={`w-20 h-20 mb-1 mx-auto rounded-2xl bg-gradient-to-r flex items-center justify-center shadow-none`}>
-                  <img src={services[activeService].icon} className="w-40 h-30 text-white" />
+                <div className={`w-20 h-20 mb-1 mx-auto rounded-2xl bg-gradient-to-r flex items-center justify-center shadow-none overflow-hidden`}>
+                  <img src={services[activeService].icon} alt={services[activeService].title} className="w-full h-full object-contain" />
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
                   {services[activeService].title}
