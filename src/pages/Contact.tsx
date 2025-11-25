@@ -97,11 +97,6 @@ const Contact = () => {
                       {method.contact}
                     </a>
                   </Button>
-                  {method.contact == "+91 7383168307" ? <Button variant="outline" asChild>
-                    <a href="tel:+918401446125">
-                    +91 8401446125
-                    </a>
-                  </Button> : ""}
                   </div>
                 </CardContent>
               </Card>

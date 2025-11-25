@@ -8,11 +8,12 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8 md:gap-0">
           {/* Logo & Description */}
           <div className="md:col-span-2 md:max-w-md">
-            <Link to="/" className="flex items-center space-x-2 mb-4">
-              {/* <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden">
-                <img src="/logo.png" alt="Zylate Logo" className="w-8 h-8" />
-              </div> */}
-              <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Zylate</span>
+            <Link to="/" className="">
+              <img 
+                src="/images/ChatGPT.png" 
+                alt="Zylate" 
+                className="h-16 w-auto object-contain"
+              />
             </Link>
             <p className="text-white/70 mb-6 text-sm sm:text-base max-w-md">
               Leading IT services company providing comprehensive technology solutions including software development, 
@@ -64,10 +65,6 @@ const Footer = () => {
               <div className="flex items-center space-x-2 text-white/70">
                 <Phone className="h-4 w-4 flex-shrink-0" />
                 <span className="text-xs sm:text-sm">+91 73831 68307</span>
-              </div>
-              <div className="flex items-center space-x-2 text-white/70">
-                <Phone className="h-4 w-4 flex-shrink-0" />
-                <span className="text-xs sm:text-sm">+91 84014 46125</span>
               </div>
               <div className="flex items-start space-x-2 text-white/70">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
