@@ -75,7 +75,7 @@ const Hero = () => {
         <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-lg mx-auto animate-fade-in-up animate-delay-300">
           <div className="group relative p-4 rounded-xl bg-muted/30 backdrop-blur-sm border border-border/50 hover:shadow-lg hover:border-blue-400 transition-all duration-300 hover:shadow-elegant cursor-default">
             <CountUpStat
-              value="500+"
+              value="20+"
               className="text-2xl md:text-3xl font-bold gradient-text mb-1 group-hover:scale-110 transition-transform duration-300"
               duration={1000}
             />
@@ -83,7 +83,7 @@ const Hero = () => {
           </div>
           <div className="group relative p-4 rounded-xl bg-muted/30 backdrop-blur-sm border border-border/50 hover:shadow-lg hover:border-blue-400 transition-all duration-300 hover:shadow-elegant cursor-default">
             <CountUpStat
-              value="1000+"
+              value="15+"
               className="text-2xl md:text-3xl font-bold gradient-text mb-1 group-hover:scale-110 transition-transform duration-300"
               duration={1000}
             />
