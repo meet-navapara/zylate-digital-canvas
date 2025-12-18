@@ -20,6 +20,7 @@ const Portfolio = () => {
       liveUrl: "https://www.dudhwatigerreserve.in/",
       highlights: ["Online safari booking system", "Real-time availability tracking", "Mobile-responsive design"],
       client: "Rakesh Makvana",
+      rating: 4,
       review: "Excellent work on our jungle safari booking website! The team delivered a user-friendly platform that has significantly improved our booking process. The real-time availability feature and seamless payment integration have made it easy for visitors to book safaris. Highly professional and responsive team.",
       projectDetails: "Developed a comprehensive wildlife tourism platform with online booking system, real-time availability tracking, payment gateway integration, and detailed wildlife information. The platform includes admin dashboard for managing bookings, visitor management, and comprehensive information about the reserve's flora and fauna."
     },
@@ -34,6 +35,7 @@ const Portfolio = () => {
       liveUrl: "https://regaportal.com/",
       highlights: ["Live webinar hosting", "Real-time analytics dashboard", "Automated registration system"],
       client: "Sujeet Kumar",
+      rating: 5,
       review: "REGAPORTAL has transformed how we manage webinars! The platform is intuitive, feature-rich, and the real-time analytics dashboard provides valuable insights. The automated registration system and payment integration work flawlessly. The team's expertise in webinar technology is outstanding.",
       projectDetails: "Built a complete webinar management platform with live streaming capabilities, registration management, real-time attendee tracking, payment processing, and comprehensive analytics dashboard. The platform includes automated email notifications, webinar scheduling, and detailed reporting features."
     },
@@ -48,6 +50,7 @@ const Portfolio = () => {
       liveUrl: "#",
       highlights: ["Online quote system", "Service booking integration", "Professional business design"],
       client: "Logan Popwell",
+      rating: 4.5,
       review: "The team created a beautiful and professional website for our business. The online quote system and service booking features have streamlined our operations significantly. The design perfectly represents our brand, and the website is fast and mobile-friendly. Great communication throughout the project!",
       projectDetails: "Designed and developed a modern business website featuring service listings, online quote request system, service booking functionality, and comprehensive information about portable toilets, septic services, and holding tanks. The website includes contact forms, service gallery, and responsive design optimized for all devices."
     },
@@ -254,9 +257,26 @@ const Portfolio = () => {
                             <p className="text-sm font-medium text-foreground">Client Review</p>
                           </div>
                           <div className="flex items-center gap-1 mb-2">
-                            {[...Array(5)].map((_, i) => (
-                              <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                            ))}
+                            {[...Array(5)].map((_, i) => {
+                              const rating = project.rating || 5;
+                              const fullStars = Math.floor(rating);
+                              const hasHalfStar = rating % 1 !== 0;
+                              
+                              if (i < fullStars) {
+                                return <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />;
+                              } else if (i === fullStars && hasHalfStar) {
+                                return (
+                                  <div key={i} className="relative w-4 h-4">
+                                    <Star className="w-4 h-4 fill-gray-300 text-gray-300" />
+                                    <div className="absolute left-0 top-0 w-2 h-4 overflow-hidden">
+                                      <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                                    </div>
+                                  </div>
+                                );
+                              } else {
+                                return <Star key={i} className="w-4 h-4 fill-gray-300 text-gray-300" />;
+                              }
+                            })}
                           </div>
                           <p className="text-sm text-muted-foreground leading-relaxed italic">"{project.review}"</p>
                         </div>
