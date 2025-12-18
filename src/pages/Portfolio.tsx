@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ExternalLink, Github, Calendar } from "lucide-react";
+import { ExternalLink, Github, Calendar, User, Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -10,15 +10,46 @@ import { Badge } from "@/components/ui/badge";
 const Portfolio = () => {
   const projects = [
     {
-      title: "TechFlow E-Commerce Platform",
-      description: "A comprehensive e-commerce solution with advanced inventory management, payment processing, and analytics dashboard. Built for scalability and performance.",
-      longDescription: "This project involved creating a full-featured e-commerce platform from scratch, including user authentication, product catalog, shopping cart, payment integration with Stripe, order management, and an admin dashboard for inventory control.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop&q=80",
+      title: "Dudhwa Tiger Reserve",
+      description: "A comprehensive jungle safari booking website for Dudhwa Tiger Reserve, featuring online booking system, wildlife information, and visitor management.",
+      longDescription: "A complete wildlife tourism platform that allows visitors to book jungle safaris, explore wildlife information, view schedules, and manage their reservations. The platform includes real-time availability, payment processing, and comprehensive information about the reserve's flora and fauna.",
+      image: "https://images.unsplash.com/photo-1511497584788-876760111969?w=800&h=600&fit=crop&q=80",
       category: "Web Development",
-      year: "2024",
-      tags: ["React", "Node.js", "MongoDB", "Stripe", "AWS", "TypeScript"],
+      year: "2025",
+      tags: ["React", "Node.js", "MongoDB", "Payment Gateway", "Responsive Design", "Booking System"],
+      liveUrl: "https://www.dudhwatigerreserve.in/",
+      highlights: ["Online safari booking system", "Real-time availability tracking", "Mobile-responsive design"],
+      client: "Rakesh Makvana",
+      review: "Excellent work on our jungle safari booking website! The team delivered a user-friendly platform that has significantly improved our booking process. The real-time availability feature and seamless payment integration have made it easy for visitors to book safaris. Highly professional and responsive team.",
+      projectDetails: "Developed a comprehensive wildlife tourism platform with online booking system, real-time availability tracking, payment gateway integration, and detailed wildlife information. The platform includes admin dashboard for managing bookings, visitor management, and comprehensive information about the reserve's flora and fauna."
+    },
+    {
+      title: "REGAPORTAL",
+      description: "Live webinar registration and management platform with real-time analytics, attendee tracking, and payment integration.",
+      longDescription: "A comprehensive webinar management platform that enables organizations to create, manage, and host live webinars. Features include registration management, real-time attendee tracking, payment processing, analytics dashboard, and automated email notifications.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&q=80",
+      category: "Web Development",
+      year: "2025",
+      tags: ["React", "WebRTC", "Payment Integration", "Real-time Analytics", "Dashboard", "TypeScript"],
+      liveUrl: "https://regaportal.com/",
+      highlights: ["Live webinar hosting", "Real-time analytics dashboard", "Automated registration system"],
+      client: "Sujeet Kumar",
+      review: "REGAPORTAL has transformed how we manage webinars! The platform is intuitive, feature-rich, and the real-time analytics dashboard provides valuable insights. The automated registration system and payment integration work flawlessly. The team's expertise in webinar technology is outstanding.",
+      projectDetails: "Built a complete webinar management platform with live streaming capabilities, registration management, real-time attendee tracking, payment processing, and comprehensive analytics dashboard. The platform includes automated email notifications, webinar scheduling, and detailed reporting features."
+    },
+    {
+      title: "Professional Septic & Portable Toilet Solutions",
+      description: "Professional website for septic and portable toilet services with service booking, quote requests, and comprehensive service information.",
+      longDescription: "A modern business website for septic and portable toilet solutions, featuring service listings, online quote requests, booking system, and detailed information about services including portable toilets, septic services, and holding tanks. Built with a clean, professional design to showcase reliability and expertise.",
+      image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&h=600&fit=crop&q=80",
+      category: "Web Development",
+      year: "2025",
+      tags: ["React", "Next.js", "Tailwind CSS", "Contact Forms", "Service Booking", "Responsive Design"],
       liveUrl: "#",
-      highlights: ["50% increase in conversion rate", "99.9% uptime", "Mobile-first responsive design"]
+      highlights: ["Online quote system", "Service booking integration", "Professional business design"],
+      client: "Logan Popwell",
+      review: "The team created a beautiful and professional website for our business. The online quote system and service booking features have streamlined our operations significantly. The design perfectly represents our brand, and the website is fast and mobile-friendly. Great communication throughout the project!",
+      projectDetails: "Designed and developed a modern business website featuring service listings, online quote request system, service booking functionality, and comprehensive information about portable toilets, septic services, and holding tanks. The website includes contact forms, service gallery, and responsive design optimized for all devices."
     },
     {
       title: "HealthTracker Mobile App", 
@@ -41,28 +72,6 @@ const Portfolio = () => {
       tags: ["Flutter", "Firebase", "Stripe", "Cloud Functions", "Analytics"],
       liveUrl: "#",
       highlights: ["Featured on App Store", "25K+ active users", "Award-winning UI design"]
-    },
-    {
-      title: "DataViz Analytics Dashboard",
-      description: "Enterprise-level analytics dashboard with real-time data visualization and custom reporting features.",
-      longDescription: "A powerful analytics platform that processes millions of data points daily, providing real-time insights through interactive charts, custom dashboards, and automated reporting for enterprise clients.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&q=80",
-      category: "Web Development",
-      year: "2023", 
-      tags: ["Next.js", "D3.js", "PostgreSQL", "Redis", "Docker", "Kubernetes"],
-      liveUrl: "#",
-      highlights: ["1M+ data points processed daily", "Sub-second query performance", "Enterprise security compliance"]
-    },
-    {
-      title: "EduConnect Learning Platform",
-      description: "Online learning management system with video streaming, interactive quizzes, and progress tracking.",
-      longDescription: "A comprehensive LMS platform designed for educational institutions, featuring course management, video streaming, interactive assessments, student progress tracking, and integrated communication tools.",
-      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop&q=80",
-      category: "Web Development",
-      year: "2023",
-      tags: ["React", "Python", "Django", "PostgreSQL", "WebRTC", "AWS"],
-      liveUrl: "#", 
-      highlights: ["5K+ students enrolled", "HD video streaming", "Interactive learning tools"]
     },
     {
       title: "RestaurantOS Management System",
@@ -193,6 +202,69 @@ const Portfolio = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Clients Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <span className="gradient-text">Our Clients</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              We're proud to work with amazing clients who trust us with their digital transformation.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {projects
+              .filter(project => project.client)
+              .map((project) => (
+                <Card key={project.title} className="border-0 bg-muted/30 shadow-elegant hover:shadow-coral transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-coral flex items-center justify-center">
+                        <User className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-lg">{project.client}</h3>
+                        <p className="text-sm text-muted-foreground">Client</p>
+                      </div>
+                    </div>
+                    
+                    <div className="border-t border-border pt-4 space-y-4">
+                      <div>
+                        <p className="text-sm font-medium text-foreground mb-1">Project:</p>
+                        <p className="text-muted-foreground font-medium">{project.title}</p>
+                      </div>
+                      
+                      {project.projectDetails && (
+                        <div>
+                          <p className="text-sm font-medium text-foreground mb-2">Project Details:</p>
+                          <p className="text-sm text-muted-foreground leading-relaxed">{project.projectDetails}</p>
+                        </div>
+                      )}
+                      
+                      {project.review && (
+                        <div className="bg-background/50 rounded-lg p-4 border border-border/50">
+                          <div className="flex items-center gap-1 mb-2">
+                            <Quote className="w-4 h-4 text-coral" />
+                            <p className="text-sm font-medium text-foreground">Client Review</p>
+                          </div>
+                          <div className="flex items-center gap-1 mb-2">
+                            {[...Array(5)].map((_, i) => (
+                              <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                            ))}
+                          </div>
+                          <p className="text-sm text-muted-foreground leading-relaxed italic">"{project.review}"</p>
+                        </div>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
           </div>
         </div>
       </section>

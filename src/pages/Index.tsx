@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
+import Clients from "@/components/Clients";
 import ContactForm from "@/components/ContactForm";
 
 const Index = () => {
@@ -13,6 +14,7 @@ const Index = () => {
         <Hero />
         <Services />
         <Portfolio />
+        <Clients />
         
         {/* Contact Section */}
         <section className="py-20 bg-muted/30">
