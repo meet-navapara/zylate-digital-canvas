@@ -1,4 +1,4 @@
-import { ExternalLink, Github, ShoppingCart, CheckSquare, Activity } from "lucide-react";
+import { ExternalLink, Github, TreePine, Video, Wrench } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Link } from "react-router-dom";
@@ -9,31 +9,34 @@ const Portfolio = () => {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with payment processing and inventory management.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-      icon: ShoppingCart,
+      title: "Dudhwa Tiger Reserve",
+      description: "Jungle safari booking website with online reservation system, wildlife information, and visitor management.",
+      image: "https://images.unsplash.com/photo-1511497584788-876760111969?w=800&h=600&fit=crop&q=80",
+      icon: TreePine,
       gradient: "from-primary via-coral to-secondary",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      liveUrl: "#",
+      tags: ["React", "Node.js", "MongoDB", "Booking System"],
+      liveUrl: "https://www.dudhwatigerreserve.in/",
+      client: "Rakesh Makvana",
     },
     {
-      title: "Task Management App",
-      description: "Collaborative project management tool with real-time updates and team features.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
-      icon: CheckSquare,
+      title: "REGAPORTAL",
+      description: "Live webinar registration and management platform with real-time analytics, attendee tracking, and payment integration.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&q=80",
+      icon: Video,
       gradient: "from-coral via-primary to-secondary",
-      tags: ["React Native", "Firebase", "TypeScript"],
-      liveUrl: "#",
+      tags: ["React", "WebRTC", "Analytics", "TypeScript"],
+      liveUrl: "https://regaportal.com/",
+      client: "Sujeet Kumar",
     },
     {
-      title: "Healthcare Dashboard",
-      description: "Medical practice management system with patient records and scheduling.",
-      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=600&fit=crop&q=80",
-      icon: Activity,
+      title: "Professional Septic & Portable Toilet Solutions",
+      description: "Professional business website for septic and portable toilet services with service booking and quote requests.",
+      image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&h=600&fit=crop&q=80",
+      icon: Wrench,
       gradient: "from-secondary via-coral to-primary",
-      tags: ["Next.js", "PostgreSQL", "Tailwind"],
+      tags: ["React", "Next.js", "Tailwind CSS", "Responsive"],
       liveUrl: "#",
+      client: "Logan Popwell",
     },
   ];
 

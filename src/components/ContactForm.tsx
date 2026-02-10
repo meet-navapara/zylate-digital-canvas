@@ -6,6 +6,8 @@ import { Label } from "./ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Send, Check } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
+import { EMAILJS_CONFIG } from "@/config/emailjs";
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,39 +34,86 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycby3CVHhKBuX3_IoGur6LeEC0prr4uRmCkP7zMZ1l4uaaojynkdBGwbBCWRI3SJa6zMI/exec", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData),
-         mode: "no-cors" 
+      // Initialize EmailJS
+      emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+
+      // Prepare email data for company (to zylateinfotech@gmail.com)
+      const companyEmailParams = {
+        to_email: "zylateinfotech@gmail.com",
+        to_name: "Zylate Digital Canvas",
+        from_name: formData.name,
+        from_email: formData.email,
+        user_email: formData.email,
+        company: formData.company || "Not provided",
+        service: formData.service || "Not specified",
+        message: formData.message,
+        subject: `New Contact Form Submission from ${formData.name}`,
+        reply_to: formData.email,
+      };
+
+      // Prepare email data for user confirmation
+      // Make sure formData.email is not empty
+      if (!formData.email || !formData.email.trim()) {
+        throw new Error("Email address is required");
+      }
+
+      const userEmailParams = {
+        to_email: formData.email.trim(),
+        email: formData.email.trim(), // Alternative variable name
+        user_email: formData.email.trim(), // Another alternative
+        to_name: formData.name,
+        from_name: "Zylate Digital Canvas",
+        company_name: "Zylate Digital Canvas",
+        support_email: "zylateinfotech@gmail.com",
+      };
+      
+      console.log("User email params:", userEmailParams);
+
+      // Send email to company first
+      try {
+        const companyResult = await emailjs.send(
+          EMAILJS_CONFIG.SERVICE_ID,
+          EMAILJS_CONFIG.TEMPLATE_ID_COMPANY,
+          companyEmailParams
+        );
+        console.log("Company email sent successfully:", companyResult);
+      } catch (companyError) {
+        console.error("Company email failed:", companyError);
+        throw new Error(`Failed to send company email: ${companyError}. Please check that template_fqx70mj has 'To Email' set to 'zylateinfotech@gmail.com' in EmailJS dashboard.`);
+      }
+
+      // Send confirmation email to user
+      try {
+        const userResult = await emailjs.send(
+          EMAILJS_CONFIG.SERVICE_ID,
+          EMAILJS_CONFIG.TEMPLATE_ID_USER,
+          userEmailParams
+        );
+        console.log("User email sent successfully:", userResult);
+      } catch (userError) {
+        console.error("User email failed:", userError);
+        throw new Error(`Failed to send user email: ${userError}. Please check that template_mcxjyjk has 'To Email' set to '{{to_email}}' in EmailJS dashboard.`);
+      }
+
+      setIsSubmitted(true);
+      toast({
+        title: "Message sent successfully!",
+        description: "We'll get back to you within 24 hours. Check your email for confirmation.",
       });
-
-toast({
-  title: "Message sent successfully!",
-  description: "We'll get back to you within 24 hours.",
-  variant:"default"
-
-});
-
-        setIsSubmitted(true);
-        toast({
-          title: "Message sent successfully!",
-          description: "We'll get back to you within 24 hours.",
-        });
-        setFormData({
-          name: "",
-          email: "",
-          company: "",
-          service: "",
-          message: "",
-        });
+      
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        service: "",
+        message: "",
+      });
       
     } catch (error) {
+      console.error("EmailJS Error:", error);
       toast({
         title: "Error sending message",
-        description: (error as Error).message,
+        description: "Please try again later or contact us directly at zylateinfotech@gmail.com",
         variant: "destructive"
       });
     } finally {
