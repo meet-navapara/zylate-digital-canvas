@@ -138,7 +138,7 @@ const Services = () => {
   ];
 
   const stats = [
-    { icon: Users, value: "1000+", label: "Happy Clients" },
+    { icon: Users, value: "100+", label: "Happy Clients" },
     { icon: Award, value: "50+", label: "Awards Won" },
     { icon: Zap, value: "99.9%", label: "Uptime" },
     { icon: Star, value: "4.9/5", label: "Client Rating" }
@@ -189,9 +189,9 @@ const Services = () => {
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-[hsl(210,100%,25%)] via-primary to-[hsl(210,100%,30%)] rounded-2xl flex items-center justify-center shadow-elegant">
                   <stat.icon className="w-8 h-8 text-white" />
                 </div>
-                <div className="text-3xl font-bold gradient-text mb-2">{stat.value === "1000+" ? 
+                <div className="text-3xl font-bold gradient-text mb-2">{stat.value === "100+" ? 
                   <CountUpStat
-                    value="1000+"
+                    value="100+"
                     className="text-2xl md:text-3xl font-bold gradient-text mb-1 group-hover:scale-110 transition-transform duration-300"
                     duration={1000}
                   /> : stat.value === "50+" ? 
