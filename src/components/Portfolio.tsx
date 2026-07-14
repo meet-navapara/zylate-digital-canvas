@@ -1,4 +1,4 @@
-import { ExternalLink, Github, ShoppingCart, CheckSquare, Activity } from "lucide-react";
+import { ExternalLink, Mountain, Leaf, Code2, Dumbbell } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Link } from "react-router-dom";
@@ -9,31 +9,40 @@ const Portfolio = () => {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with payment processing and inventory management.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-      icon: ShoppingCart,
-      gradient: "from-primary via-coral to-secondary",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      liveUrl: "#",
+      title: "FixMyGym",
+      description: "Fitness equipment repair platform with AI diagnostics and technician booking. Live at fixmygym.app.",
+      image: "/fixmygym.png",
+      icon: Dumbbell,
+      gradient: "from-orange-500 via-coral to-primary",
+      tags: ["React", "TypeScript", "AI", "Booking"],
+      liveUrl: "https://fixmygym.app",
     },
     {
-      title: "Task Management App",
-      description: "Collaborative project management tool with real-time updates and team features.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
-      icon: CheckSquare,
-      gradient: "from-coral via-primary to-secondary",
-      tags: ["React Native", "Firebase", "TypeScript"],
-      liveUrl: "#",
+      title: "Altitude Labs",
+      description: "Premium e-commerce store for Himalayan Shilajit with a dark luxury aesthetic and product catalog.",
+      image: "/altitude-labs.png",
+      icon: Mountain,
+      gradient: "from-amber-500 via-yellow-600 to-stone-800",
+      tags: ["E-Commerce", "React", "Branding"],
+      liveUrl: "https://www.altitudelabs.in/",
     },
     {
-      title: "Healthcare Dashboard",
-      description: "Medical practice management system with patient records and scheduling.",
-      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=600&fit=crop&q=80",
-      icon: Activity,
-      gradient: "from-secondary via-coral to-primary",
-      tags: ["Next.js", "PostgreSQL", "Tailwind"],
-      liveUrl: "#",
+      title: "Shreeshakti Ayurveda",
+      description: "Ayurvedic healthcare booking platform for appointments, consultations, and WhatsApp confirmations.",
+      image: "/shreeshakti-ayurveda.png",
+      icon: Leaf,
+      gradient: "from-yellow-600 via-stone-700 to-emerald-800",
+      tags: ["Healthcare", "Booking", "React"],
+      liveUrl: "https://www.shreeshaktiayurveda.com/",
+    },
+    {
+      title: "Blue Coders Infotech",
+      description: "Corporate website for a software development company building mobile apps and digital products.",
+      image: "/blue-coders.png",
+      icon: Code2,
+      gradient: "from-blue-500 via-sky-400 to-indigo-600",
+      tags: ["Corporate", "React", "UI/UX"],
+      liveUrl: "https://bluecodersinfotech.com/",
     },
   ];
 
@@ -79,6 +88,14 @@ const Portfolio = () => {
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                   <div className="absolute bottom-4 left-4 right-4 flex gap-2">
+                    {project.liveUrl && project.liveUrl !== "#" && (
+                      <Button size="sm" variant="secondary" className="bg-white/90 text-primary hover:bg-white" asChild>
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="h-4 w-4 mr-1" />
+                          Visit Site
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </div>
               </div>

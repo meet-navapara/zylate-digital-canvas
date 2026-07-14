@@ -40,7 +40,7 @@ const Services = () => {
       technologies: ["React", "Next.js", "TypeScript", "Angular", "Vue", "Bootstrap", "Tailwind CSS", "HTML5", "JavaScript", "CSS", "Material UI", "Tailwind UI"],
       gradient: "from-blue-500 to-purple-600",
       bgColor: "bg-blue-50 dark:bg-blue-950/20",
-      stats: "500+ Projects",
+      stats: "100+ Projects",
       rating: 4.9
     },
     {

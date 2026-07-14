@@ -71,7 +71,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2 text-white/70">
                 <MapPin className="h-4 w-4" />
-                <span className="text-sm">207 Ambika pinecale Mota Varachha Surat Gujarat 394101</span>
+                <span className="text-sm">309 Ambika pinecale Mota Varachha Surat Gujarat 394101</span>
               </div>
               <div className="flex space-x-4">
               <a 
