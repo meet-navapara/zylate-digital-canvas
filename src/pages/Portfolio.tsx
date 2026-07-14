@@ -65,6 +65,28 @@ const Portfolio = () => {
       highlights: ["50% increase in conversion rate", "99.9% uptime", "Mobile-first responsive design"]
     },
     {
+      title: "HealthTracker Mobile App", 
+      description: "Cross-platform mobile application for personal health monitoring with real-time data sync and AI-powered insights.",
+      longDescription: "A comprehensive health tracking application that allows users to monitor vital signs, track medications, schedule appointments, and receive personalized health insights powered by machine learning algorithms.",
+      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop&q=80",
+      category: "App Development",
+      year: "2024",
+      tags: ["React Native", "Firebase", "TensorFlow", "Redux", "TypeScript"],
+      liveUrl: "#",
+      highlights: ["AI-powered health insights", "Real-time data sync", "Medication & appointment tracking"]
+    },
+    {
+      title: "MindSpace Meditation App",
+      description: "Beautiful meditation and mindfulness app with guided sessions, progress tracking, and social features.",
+      longDescription: "An award-winning meditation app focused on user experience and engagement. Features include guided meditation sessions, breathing exercises, progress tracking, social challenges, and premium subscription management.",
+      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=600&fit=crop&q=80",
+      category: "App Development", 
+      year: "2023",
+      tags: ["Flutter", "Firebase", "Stripe", "Cloud Functions", "Analytics"],
+      liveUrl: "#",
+      highlights: ["Guided meditation sessions", "Progress tracking & social features", "Award-winning UI design"]
+    },
+    {
       title: "EduConnect Learning Platform",
       description: "Online learning management system with video streaming, interactive quizzes, and progress tracking.",
       longDescription: "A comprehensive LMS platform designed for educational institutions, featuring course management, video streaming, interactive assessments, student progress tracking, and integrated communication tools.",
@@ -88,7 +110,7 @@ const Portfolio = () => {
     }
   ];
 
-  const categories = ["All", "Web Development", "UI/UX Design"];
+  const categories = ["All", "Web Development", "App Development", "UI/UX Design"];
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filteredProjects = selectedCategory === "All" 
