@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Code, Smartphone, Palette, Database, Cloud, Shield, ArrowRight, CheckCircle, Star, Zap, Users, Award, Eye } from "lucide-react";
+import { Code, Smartphone, Palette, Database, Cloud, Shield, ArrowRight, CheckCircle, Star, Users, Eye } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -177,8 +177,6 @@ const Services = () => {
 
   const stats = [
     { icon: Users, value: "100+", label: "Happy Clients" },
-    { icon: Award, value: "50+", label: "Awards Won" },
-    { icon: Zap, value: "99.9%", label: "Uptime" },
     { icon: Star, value: "4.9/5", label: "Client Rating" }
   ];
 
@@ -221,7 +219,7 @@ const Services = () => {
       {/* Stats Section */}
       <section className="py-12 sm:py-16 bg-muted/30 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-xl mx-auto">
             {stats.map((stat, index) => (
               <div key={stat.label} className={`text-center transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: `${index * 100}ms` }}>
                 <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto mb-3 sm:mb-4 bg-gradient-to-br from-[hsl(210,100%,25%)] via-primary to-[hsl(210,100%,30%)] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-elegant">
@@ -230,11 +228,6 @@ const Services = () => {
                 <div className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text mb-1 sm:mb-2">{stat.value === "100+" ? 
                   <CountUpStat
                     value="100+"
-                    className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text mb-1 group-hover:scale-110 transition-transform duration-300"
-                    duration={1000}
-                  /> : stat.value === "50+" ? 
-                  <CountUpStat
-                    value="50+"
                     className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text mb-1 group-hover:scale-110 transition-transform duration-300"
                     duration={1000}
                   /> : stat.value}</div>
