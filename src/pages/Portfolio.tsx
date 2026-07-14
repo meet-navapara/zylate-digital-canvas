@@ -2,13 +2,57 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ExternalLink, Github, Calendar, User, Star, Quote } from "lucide-react";
+import { ExternalLink, Calendar, User, Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const Portfolio = () => {
   const projects = [
+    {
+      title: "FixMyGym",
+      description: "Fitness equipment repair platform with AI-powered diagnostics, step-by-step repair guides, and same-week technician booking.",
+      longDescription: "A full-featured web platform for diagnosing and repairing fitness equipment. Users can identify issues in seconds, follow guided repair plans powered by AI, or book certified technicians for same-week service across treadmills, ellipticals, bikes, and more.",
+      image: "/fixmygym.png",
+      category: "Web Development",
+      year: "2025",
+      tags: ["React", "TypeScript", "Tailwind CSS", "AI", "Booking"],
+      liveUrl: "https://fixmygym.app",
+      highlights: ["Live at fixmygym.app", "AI-powered repair plans", "Same-week technician booking"]
+    },
+    {
+      title: "Altitude Labs",
+      description: "Premium e-commerce site for Himalayan Shilajit with a dark luxury aesthetic, product shop, and lab-tested branding.",
+      longDescription: "A high-conversion e-commerce experience for Altitude Labs, featuring cinematic mountain imagery, product storytelling, FAQ, and shopping flows for resin-grade Himalayan Shilajit supplements.",
+      image: "/altitude-labs.png",
+      category: "Web Development",
+      year: "2025",
+      tags: ["E-Commerce", "React", "Branding", "Tailwind CSS"],
+      liveUrl: "https://www.altitudelabs.in/",
+      highlights: ["Live at altitudelabs.in", "Premium dark luxury design", "Product catalog & shop"]
+    },
+    {
+      title: "Shreeshakti Ayurveda",
+      description: "Ayurvedic healthcare platform for booking appointments with doctors and receiving instant WhatsApp confirmations.",
+      longDescription: "A patient-facing booking platform for Shreeshakti Ayurveda that lets users find Ayurvedic specialists, pick convenient time slots, book consultations online, and get WhatsApp confirmations instantly.",
+      image: "/shreeshakti-ayurveda.png",
+      category: "Web Development",
+      year: "2025",
+      tags: ["Healthcare", "Booking", "React", "WhatsApp"],
+      liveUrl: "https://www.shreeshaktiayurveda.com/",
+      highlights: ["Live at shreeshaktiayurveda.com", "Online appointment booking", "WhatsApp confirmations"]
+    },
+    {
+      title: "Blue Coders Infotech",
+      description: "Corporate website for a software development company building intelligent mobile products and digital solutions.",
+      longDescription: "A polished marketing site for Blue Coders Infotech showcasing services, process, about, careers, and consultation CTAs — positioned as a modern software development and IT solutions company.",
+      image: "/blue-coders.png",
+      category: "Web Development",
+      year: "2025",
+      tags: ["Corporate", "React", "UI/UX", "Tailwind CSS"],
+      liveUrl: "https://bluecodersinfotech.com/",
+      highlights: ["Live at bluecodersinfotech.com", "Services & process sections", "Consultation booking CTAs"]
+    },
     {
       title: "Dudhwa Tiger Reserve",
       description: "A comprehensive jungle safari booking website for Dudhwa Tiger Reserve, featuring online booking system, wildlife information, and visitor management.",
@@ -63,7 +107,7 @@ const Portfolio = () => {
       year: "2024",
       tags: ["React Native", "Firebase", "TensorFlow", "Redux", "TypeScript"],
       liveUrl: "#",
-      highlights: ["10K+ downloads", "4.8★ app store rating", "Real-time health monitoring"]
+      highlights: ["AI-powered health insights", "Real-time data sync", "Medication & appointment tracking"]
     },
     {
       title: "MindSpace Meditation App",
@@ -74,29 +118,7 @@ const Portfolio = () => {
       year: "2023",
       tags: ["Flutter", "Firebase", "Stripe", "Cloud Functions", "Analytics"],
       liveUrl: "#",
-      highlights: ["Featured on App Store", "25K+ active users", "Award-winning UI design"]
-    },
-    {
-      title: "RestaurantOS Management System",
-      description: "Complete restaurant management solution with POS, inventory tracking, and customer analytics.",
-      longDescription: "An all-in-one restaurant management system that streamlines operations from order taking to inventory management, including POS integration, staff scheduling, customer analytics, and financial reporting.",
-      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop&q=80",
-      category: "Web Development",
-      year: "2022",
-      tags: ["Vue.js", "Node.js", "MySQL", "Socket.io", "Payment APIs"],
-      liveUrl: "#",
-      highlights: ["30% reduction in order processing time", "Real-time inventory tracking", "Multi-location support"]
-    },
-    {
-      title: "FinanceApp UI/UX Design",
-      description: "Modern banking app interface design with intuitive user experience and accessibility features.",
-      longDescription: "A comprehensive UI/UX design project for a modern banking application, featuring user research, wireframing, prototyping, and design system creation. Focus on accessibility, user trust, and intuitive navigation.",
-      image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&h=600&fit=crop&q=80",
-      category: "UI/UX Design",
-      year: "2024",
-      tags: ["Figma", "Adobe XD", "User Research", "Prototyping", "Design System"],
-      liveUrl: "#",
-      highlights: ["40% improvement in user satisfaction", "WCAG 2.1 AA compliant", "Award-winning design"]
+      highlights: ["Guided meditation sessions", "Progress tracking & social features", "Award-winning UI design"]
     },
     {
       title: "E-Commerce Design System",
@@ -167,6 +189,14 @@ const Portfolio = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                     <div className="absolute bottom-4 left-4 right-4 flex gap-2">
+                      {project.liveUrl && project.liveUrl !== "#" && (
+                        <Button size="sm" variant="secondary" className="bg-white/90 text-primary hover:bg-white" asChild>
+                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="h-4 w-4 mr-1" />
+                            Visit Site
+                          </a>
+                        </Button>
+                      )}
                     </div>
                   </div>
                   

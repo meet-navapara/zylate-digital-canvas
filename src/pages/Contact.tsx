@@ -28,7 +28,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Office Location",
-      details: ["207 Ambika pinecale", "Mota Varachha", "Surat Gujarat 394101"]
+      details: ["309 Ambika pinecale", "Mota Varachha", "Surat Gujarat 394101"]
     },
     {
       icon: Clock,

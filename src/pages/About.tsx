@@ -31,10 +31,10 @@ const About = () => {
   ];
 
   const stats = [
-    { label: "IT Projects Completed", value: "500+" },
+    { label: "IT Projects Completed", value: "100+" },
     { label: "Years of Experience", value: "4+" },
     { label: "Client Satisfaction", value: "98%" },
-    { label: "Active Clients", value: "1000+" }
+    { label: "Active Clients", value: "100+" }
   ];
 
   return (

@@ -1,4 +1,4 @@
-import { ExternalLink, Github, TreePine, Video, Wrench } from "lucide-react";
+import { ExternalLink, TreePine, Video, Wrench, Dumbbell, Mountain, Leaf, Code2 } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Link } from "react-router-dom";
@@ -8,6 +8,42 @@ const Portfolio = () => {
   const [imageErrors, setImageErrors] = useState<{ [key: string]: boolean }>({});
 
   const projects = [
+    {
+      title: "FixMyGym",
+      description: "Fitness equipment repair platform with AI diagnostics and technician booking. Live at fixmygym.app.",
+      image: "/fixmygym.png",
+      icon: Dumbbell,
+      gradient: "from-orange-500 via-coral to-primary",
+      tags: ["React", "TypeScript", "AI", "Booking"],
+      liveUrl: "https://fixmygym.app",
+    },
+    {
+      title: "Altitude Labs",
+      description: "Premium e-commerce store for Himalayan Shilajit with a dark luxury aesthetic and product catalog.",
+      image: "/altitude-labs.png",
+      icon: Mountain,
+      gradient: "from-amber-500 via-yellow-600 to-stone-800",
+      tags: ["E-Commerce", "React", "Branding"],
+      liveUrl: "https://www.altitudelabs.in/",
+    },
+    {
+      title: "Shreeshakti Ayurveda",
+      description: "Ayurvedic healthcare booking platform for appointments, consultations, and WhatsApp confirmations.",
+      image: "/shreeshakti-ayurveda.png",
+      icon: Leaf,
+      gradient: "from-yellow-600 via-stone-700 to-emerald-800",
+      tags: ["Healthcare", "Booking", "React"],
+      liveUrl: "https://www.shreeshaktiayurveda.com/",
+    },
+    {
+      title: "Blue Coders Infotech",
+      description: "Corporate website for a software development company building mobile apps and digital products.",
+      image: "/blue-coders.png",
+      icon: Code2,
+      gradient: "from-blue-500 via-sky-400 to-indigo-600",
+      tags: ["Corporate", "React", "UI/UX"],
+      liveUrl: "https://bluecodersinfotech.com/",
+    },
     {
       title: "Dudhwa Tiger Reserve",
       description: "Jungle safari booking website with online reservation system, wildlife information, and visitor management.",
@@ -27,16 +63,6 @@ const Portfolio = () => {
       tags: ["React", "WebRTC", "Analytics", "TypeScript"],
       liveUrl: "https://regaportal.com/",
       client: "Sujeet Kumar",
-    },
-    {
-      title: "Professional Septic & Portable Toilet Solutions",
-      description: "Professional business website for septic and portable toilet services with service booking and quote requests.",
-      image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&h=600&fit=crop&q=80",
-      icon: Wrench,
-      gradient: "from-secondary via-coral to-primary",
-      tags: ["React", "Next.js", "Tailwind CSS", "Responsive"],
-      liveUrl: "#",
-      client: "Logan Popwell",
     },
   ];
 
@@ -82,6 +108,14 @@ const Portfolio = () => {
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                   <div className="absolute bottom-4 left-4 right-4 flex gap-2">
+                    {project.liveUrl && project.liveUrl !== "#" && (
+                      <Button size="sm" variant="secondary" className="bg-white/90 text-primary hover:bg-white" asChild>
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="h-4 w-4 mr-1" />
+                          Visit Site
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </div>
               </div>

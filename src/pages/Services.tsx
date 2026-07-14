@@ -32,7 +32,7 @@ const services = [
       technologies: ["React", "Next.js", "TypeScript", "Angular", "Vue", "Bootstrap", "Tailwind CSS", "HTML5", "JavaScript", "CSS", "Material UI", "Tailwind UI"],
       gradient: "from-blue-500 to-purple-600",
       bgColor: "bg-blue-50 dark:bg-blue-950/20",
-      stats: "500+ Projects",
+      stats: "100+ Projects",
       rating: 4.9
     },
     {
@@ -176,7 +176,7 @@ const Services = () => {
   }, [activeService]);
 
   const stats = [
-    { icon: Users, value: "1000+", label: "Happy Clients" },
+    { icon: Users, value: "100+", label: "Happy Clients" },
     { icon: Award, value: "50+", label: "Awards Won" },
     { icon: Zap, value: "99.9%", label: "Uptime" },
     { icon: Star, value: "4.9/5", label: "Client Rating" }
@@ -227,9 +227,9 @@ const Services = () => {
                 <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto mb-3 sm:mb-4 bg-gradient-to-br from-[hsl(210,100%,25%)] via-primary to-[hsl(210,100%,30%)] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-elegant">
                   <stat.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                 </div>
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text mb-1 sm:mb-2">{stat.value === "1000+" ? 
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text mb-1 sm:mb-2">{stat.value === "100+" ? 
                   <CountUpStat
-                    value="1000+"
+                    value="100+"
                     className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text mb-1 group-hover:scale-110 transition-transform duration-300"
                     duration={1000}
                   /> : stat.value === "50+" ? 
