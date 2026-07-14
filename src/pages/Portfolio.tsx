@@ -15,7 +15,7 @@ const Portfolio = () => {
       longDescription: "A full-featured web platform for diagnosing and repairing fitness equipment. Users can identify issues in seconds, follow guided repair plans powered by AI, or book certified technicians for same-week service across treadmills, ellipticals, bikes, and more.",
       image: "/fixmygym.png",
       category: "Web Development",
-      year: "2025",
+      year: "2026",
       tags: ["React", "TypeScript", "Tailwind CSS", "AI", "Booking"],
       liveUrl: "https://fixmygym.app",
       highlights: ["Live at fixmygym.app", "AI-powered repair plans", "Same-week technician booking"]
@@ -26,7 +26,7 @@ const Portfolio = () => {
       longDescription: "A high-conversion e-commerce experience for Altitude Labs, featuring cinematic mountain imagery, product storytelling, FAQ, and shopping flows for resin-grade Himalayan Shilajit supplements.",
       image: "/altitude-labs.png",
       category: "Web Development",
-      year: "2025",
+      year: "2026",
       tags: ["E-Commerce", "React", "Branding", "Tailwind CSS"],
       liveUrl: "https://www.altitudelabs.in/",
       highlights: ["Live at altitudelabs.in", "Premium dark luxury design", "Product catalog & shop"]
@@ -37,7 +37,7 @@ const Portfolio = () => {
       longDescription: "A patient-facing booking platform for Shreeshakti Ayurveda that lets users find Ayurvedic specialists, pick convenient time slots, book consultations online, and get WhatsApp confirmations instantly.",
       image: "/shreeshakti-ayurveda.png",
       category: "Web Development",
-      year: "2025",
+      year: "2026",
       tags: ["Healthcare", "Booking", "React", "WhatsApp"],
       liveUrl: "https://www.shreeshaktiayurveda.com/",
       highlights: ["Live at shreeshaktiayurveda.com", "Online appointment booking", "WhatsApp confirmations"]
@@ -48,7 +48,7 @@ const Portfolio = () => {
       longDescription: "A polished marketing site for Blue Coders Infotech showcasing services, process, about, careers, and consultation CTAs — positioned as a modern software development and IT solutions company.",
       image: "/blue-coders.png",
       category: "Web Development",
-      year: "2025",
+      year: "2026",
       tags: ["Corporate", "React", "UI/UX", "Tailwind CSS"],
       liveUrl: "https://bluecodersinfotech.com/",
       highlights: ["Live at bluecodersinfotech.com", "Services & process sections", "Consultation booking CTAs"]
@@ -104,7 +104,7 @@ const Portfolio = () => {
       longDescription: "A comprehensive health tracking application that allows users to monitor vital signs, track medications, schedule appointments, and receive personalized health insights powered by machine learning algorithms.",
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop&q=80",
       category: "App Development",
-      year: "2024",
+      year: "2026",
       tags: ["React Native", "Firebase", "TensorFlow", "Redux", "TypeScript"],
       liveUrl: "#",
       highlights: ["AI-powered health insights", "Real-time data sync", "Medication & appointment tracking"]
@@ -115,7 +115,7 @@ const Portfolio = () => {
       longDescription: "An award-winning meditation app focused on user experience and engagement. Features include guided meditation sessions, breathing exercises, progress tracking, social challenges, and premium subscription management.",
       image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=600&fit=crop&q=80",
       category: "App Development", 
-      year: "2023",
+      year: "2026",
       tags: ["Flutter", "Firebase", "Stripe", "Cloud Functions", "Analytics"],
       liveUrl: "#",
       highlights: ["Guided meditation sessions", "Progress tracking & social features", "Award-winning UI design"]
