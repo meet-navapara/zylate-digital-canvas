@@ -10,6 +10,28 @@ import { Badge } from "@/components/ui/badge";
 const Portfolio = () => {
   const projects = [
     {
+      title: "zimji",
+      description: "AI virtual try-on for outfits, hairstyles, hair color, and beards — upload a photo, pay with M-Pesa or Razorpay, and get a photorealistic preview.",
+      longDescription: "A consumer and business virtual fitting room. Shoppers try outfits, hairstyles, hair color, and beards on their own selfie. Boutiques and salons upload a catalog, run staff try-ons on prepaid credits, and track which styles convert.",
+      image: "/zimji.png",
+      category: "Web Development",
+      year: "2026",
+      tags: ["AI", "React", "Payments", "E-Commerce"],
+      liveUrl: "https://www.zimji.com/",
+      highlights: ["Live at zimji.com", "Outfit, hair, color & beard try-on", "M-Pesa and Razorpay payments"]
+    },
+    {
+      title: "Z Health",
+      description: "Clinic software that runs the full patient visit — appointments, consultation, billing, and WhatsApp or email follow-up.",
+      longDescription: "A shared workspace for doctors and clinic staff. Registration, the day calendar, consultation notes, invoices, and follow-up campaigns stay on one patient record, with branch and staff permissions.",
+      image: "/zhealth.png",
+      category: "Web Development",
+      year: "2026",
+      tags: ["Healthcare", "SaaS", "React", "Billing"],
+      liveUrl: "https://www.zhealth.world/",
+      highlights: ["Live at zhealth.world", "Calendar, consult & billing", "WhatsApp and email follow-up"]
+    },
+    {
       title: "FixMyGym",
       description: "Fitness equipment repair platform with AI-powered diagnostics, step-by-step repair guides, and same-week technician booking.",
       longDescription: "A full-featured web platform for diagnosing and repairing fitness equipment. Users can identify issues in seconds, follow guided repair plans powered by AI, or book certified technicians for same-week service across treadmills, ellipticals, bikes, and more.",

@@ -1,4 +1,4 @@
-import { ExternalLink, TreePine, Video, Wrench, Dumbbell, Mountain, Leaf, Code2 } from "lucide-react";
+import { ExternalLink, TreePine, Video, Dumbbell, Mountain, Leaf, Code2, Sparkles, Stethoscope } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Link } from "react-router-dom";
@@ -8,6 +8,24 @@ const Portfolio = () => {
   const [imageErrors, setImageErrors] = useState<{ [key: string]: boolean }>({});
 
   const projects = [
+    {
+      title: "zimji",
+      description: "AI virtual try-on for outfits, hairstyles, hair color, and beards — photorealistic previews paid with M-Pesa or Razorpay.",
+      image: "/zimji.png",
+      icon: Sparkles,
+      gradient: "from-stone-900 via-neutral-800 to-amber-700",
+      tags: ["AI", "React", "Payments", "E-Commerce"],
+      liveUrl: "https://www.zimji.com/",
+    },
+    {
+      title: "Z Health",
+      description: "Clinic workspace for the full patient visit — appointments, consultation, billing, and WhatsApp or email follow-up.",
+      image: "/zhealth.png",
+      icon: Stethoscope,
+      gradient: "from-emerald-800 via-teal-700 to-stone-800",
+      tags: ["Healthcare", "SaaS", "React", "Billing"],
+      liveUrl: "https://www.zhealth.world/",
+    },
     {
       title: "FixMyGym",
       description: "Fitness equipment repair platform with AI diagnostics and technician booking. Live at fixmygym.app.",
